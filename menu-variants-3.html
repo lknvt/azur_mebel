@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Варианты верхнего меню — третий дизайн</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@500;700&family=Unbounded:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:#e4e1db;color:#0d0d0d;padding:40px 4vw 80px;-webkit-font-smoothing:antialiased}
+h1{font:700 34px "Roboto Condensed";text-transform:uppercase;margin-bottom:6px}.lead{color:#555;font-size:14px;margin-bottom:34px}
+.v{margin-bottom:44px}.v h2{font:700 20px "Roboto Condensed";text-transform:uppercase;margin-bottom:4px}.v p{font-size:13px;color:#555;margin-bottom:12px;max-width:760px}
+.st{position:relative;height:400px;border-radius:20px;overflow:hidden;background:#333 url(img/f17_h.jpg) center 66%/cover;box-shadow:0 10px 40px rgba(0,0,0,.14)}
+.st.b{background-image:url(img/f19_h.jpg)}.st.c{background-image:url(img/f03_h.jpg)}.st.d{background-image:url(img/f23_h.jpg)}
+.cap{position:absolute;left:30px;bottom:36px;color:#fff;font:700 54px/1 "Roboto Condensed";text-transform:uppercase;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+a,button{color:inherit;text-decoration:none;font:inherit;background:none;border:0;cursor:pointer}
+.lg{font:800 22px Unbounded;letter-spacing:-.06em;text-transform:lowercase}
+.cta{background:#0d0d0d;color:#fff;border-radius:99px;padding:11px 22px;font-size:12px;font-weight:500;white-space:nowrap}
+nav a{position:relative}nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:.3s}nav a:hover::after{transform:scaleX(1)}
+.dots{display:flex;gap:5px}.dots i{width:11px;height:11px;border-radius:50%;display:block}
+/* A */
+.A{position:absolute;top:14px;left:16px;right:16px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 24px;border-radius:99px;background:rgba(244,242,238,.82);backdrop-filter:blur(20px) saturate(1.4);box-shadow:0 8px 36px rgba(0,0,0,.18)}
+.A nav{display:flex;gap:30px;font:700 15px "Roboto Condensed";text-transform:uppercase;letter-spacing:.03em}.A .r{display:flex;justify-content:flex-end;gap:14px;align-items:center}
+/* B */
+.B{position:absolute;top:0;left:0;right:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 32px;background:#F4F2EE;border-bottom:1px solid #0d0d0d}
+.B nav{display:flex;gap:28px;font:700 15px "Roboto Condensed";text-transform:uppercase;letter-spacing:.03em}.B .nl{justify-content:flex-start}.B .nr{justify-content:flex-end;align-items:center}
+.B .lg{font-size:26px;padding:0 40px}
+/* C */
+.C{position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:26px;padding:10px 12px 10px 26px;border-radius:99px;background:#F4F2EE;box-shadow:0 8px 36px rgba(0,0,0,.2)}
+.C nav{display:flex;gap:24px;font:700 15px "Roboto Condensed";text-transform:uppercase;letter-spacing:.03em}
+/* D */
+.D{position:absolute;top:0;left:0;right:0;background:#F4F2EE}
+.D .u{display:flex;justify-content:space-between;align-items:center;padding:8px 32px;font-size:11px;background:#0d0d0d;color:#e8e8e8}
+.D .m{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.D nav{display:flex;gap:34px;font:700 17px "Roboto Condensed";text-transform:uppercase;letter-spacing:.03em}
+</style></head><body>
+<h1>Верхнее меню: третий дизайн</h1><p class="lead">Четыре варианта на фото главного экрана, в характере дизайна «по настроению». Наведите на пункты, чтобы увидеть подчёркивание. Скажите букву или что поменять.</p>
+
+<section class="v"><h2>A · Светлая капсула-стекло</h2><p>Широкая закруглённая бежевая панель с размытием фона, пункты узким шрифтом заглавными. Логотип слева, цветные кружки настроения и чёрная кнопка справа.</p>
+<div class="st"><header class="A"><a class="lg">azur</a><nav><a>Коллекции</a><a>Зоны</a><a>Материалы</a><a>Проекты</a><a>Шоурум</a></nav><div class="r"><div class="dots"><i style="background:#9DB5A3"></i><i style="background:#E6B7A6"></i><i style="background:#B9A6D9"></i><i style="background:#EBD58A"></i><i style="background:#A9BFD3"></i></div><button class="cta">Оставить заявку</button></div></header><div class="cap">Вечер в сосновом саду</div></div></section>
+
+<section class="v"><h2>B · Логотип по центру</h2><p>Сплошная бежевая строка: слева «Коллекции, Зоны», посередине крупный логотип, справа «Проекты, Шоурум» и кнопка. Симметрично, как у модных каталогов.</p>
+<div class="st b"><header class="B"><nav class="nl"><a>Коллекции</a><a>Зоны</a><a>Материалы</a></nav><a class="lg">azur</a><nav class="nr"><a>Проекты</a><a>Шоурум</a><button class="cta" style="margin-left:6px">Оставить заявку</button></nav></header><div class="cap">Город у ваших ног</div></div></section>
+
+<section class="v"><h2>C · Центральная таблетка</h2><p>Компактная бежевая таблетка по центру: логотип, пункты и кнопка внутри одной формы. Фото остаётся полностью открытым по бокам.</p>
+<div class="st c"><header class="C"><a class="lg">azur</a><nav><a>Коллекции</a><a>Зоны</a><a>Материалы</a><a>Проекты</a><a>Шоурум</a></nav><button class="cta">Оставить заявку</button></header><div class="cap">Ужин с видом на море</div></div></section>
+
+<section class="v"><h2>D · Чёрная полоса и бежевое меню</h2><p>Тонкая чёрная строка с адресом и телефоном, под ней бежевая панель с логотипом, крупными пунктами и кнопкой. Деловой и очень читаемый.</p>
+<div class="st d"><header class="D"><div class="u"><span>Исакеева 1/1, Бишкек · ежедневно 9:00–18:00</span><span>+996 553 387 878 · WhatsApp</span></div><div class="m"><a class="lg">azur</a><nav><a>Коллекции</a><a>Зоны</a><a>Материалы</a><a>Проекты</a><a>Шоурум</a></nav><button class="cta">Оставить заявку</button></div></header><div class="cap">Двор, где тихо</div></div></section>
+</body></html>

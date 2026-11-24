@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ru" data-v="2">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>azur — садовая мебель Higold, Бишкек</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@500;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F2EE;--ink:#0d0d0d;--mut:#a39f97;--card:#E6E3DD;--pad:28px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-weight:400;font-size:12px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}img{display:block}ul{list-style:none}
+.cond{font-family:"Roboto Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.005em;line-height:1.02}
+/* top */
+.top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:20px;padding:22px var(--pad) 0;font-size:11px;line-height:1.55}
+.top b{display:block;font-weight:400;color:var(--mut);margin-bottom:2px}
+.top a{display:block;transition:opacity .2s}.top a:hover{opacity:.5}
+.top p{max-width:240px}
+/* wordmark */
+.wm{display:flex;align-items:flex-end;justify-content:center;padding:2.2vw var(--pad) 0;font-family:Unbounded,sans-serif;font-weight:800;font-size:27vw;line-height:.74;letter-spacing:-.06em;text-transform:lowercase;white-space:nowrap;overflow:hidden;cursor:default;user-select:none}
+.wm .ph{display:inline-block;width:.34em;height:.52em;margin:0 .02em .02em;border-radius:999px 999px 0 0;overflow:hidden;align-self:flex-end;flex:none;position:relative}
+.wm .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .9s}
+/* categories */
+.cats{text-align:center;padding:5.5vw var(--pad) 3vw;font-size:clamp(26px,4.4vw,70px);max-width:1500px;margin:0 auto}
+.cats button{font:inherit;color:var(--mut);transition:color .25s;text-transform:inherit;letter-spacing:inherit;line-height:inherit}
+.cats button:hover{color:#555}.cats button.on{color:var(--ink)}
+.cats span{color:var(--mut)}
+/* strip */
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:calc(100%/3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-top:1px solid transparent}
+.strip::-webkit-scrollbar{display:none}
+.pt{scroll-snap-align:start;position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;background:var(--card)}
+.pt img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.6,.2,1)}
+.pt:hover img{transform:scale(1.06)}
+.pt .tg{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;gap:8px;opacity:0;transform:translateY(8px);transition:.4s}
+.pt:hover .tg{opacity:1;transform:none}
+.chip{background:rgba(244,242,238,.9);backdrop-filter:blur(8px);border-radius:99px;padding:5px 11px;font-size:10px;letter-spacing:.02em;white-space:nowrap}
+.hint{display:flex;justify-content:space-between;padding:12px var(--pad) 0;font-size:11px;color:var(--mut)}
+/* ideas */
+.sec{padding:9vw 0 0}
+.h2{text-align:center;font-size:clamp(28px,3.8vw,60px);padding:0 var(--pad) 3vw;max-width:1300px;margin:0 auto}
+.trio{display:grid;grid-template-columns:repeat(3,1fr)}
+.big{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer}
+.big img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.6,.2,1)}
+.big:hover img{transform:scale(1.05)}
+.big .chips{position:absolute;left:18px;right:18px;top:50%;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;transform:translateY(-50%);opacity:.0;transition:.45s}
+.big:hover .chips,.big.on .chips{opacity:1}
+.big .lab{position:absolute;left:18px;bottom:16px;color:#fff;font-size:11px;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+/* nature cards */
+.cards{display:grid;grid-auto-flow:column;grid-auto-columns:calc(100%/3);overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}
+.cards::-webkit-scrollbar{display:none}
+.cd{scroll-snap-align:start;background:var(--card);margin-right:1px;aspect-ratio:16/9;padding:16px 20px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;transition:background .4s}
+.cd:hover{background:#dcd8d0}
+.cd small{color:var(--mut);font-size:11px}
+.cd h3{font-size:clamp(18px,2vw,30px);margin-top:8px}
+.cd p{font-size:11px;max-width:300px;margin:0 auto;color:#4b4842}
+.cd{position:relative;overflow:hidden;color:#fff;background:#222}
+.cd>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.6,.2,1);z-index:0}
+.cd::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.05) 35%,rgba(0,0,0,.12) 55%,rgba(0,0,0,.62));z-index:1;transition:opacity .5s}
+.cd:hover>img{transform:scale(1.06)}
+.cd>*:not(img){position:relative;z-index:2}
+.cd small,.cd p{color:#fff}
+.cd>div{margin-top:auto;margin-bottom:14px}.cd h3{margin-top:0}
+.cd:hover{background:#222}
+/* full bleed */
+.full{position:relative;margin-top:9vw}
+.full img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.full p{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff;font-size:12px;text-align:center;max-width:320px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.stack img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.inset{position:relative}
+.inset>img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.inset .in{position:absolute;right:20%;bottom:-8%;width:28%;aspect-ratio:16/9;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.inset .in img{width:100%;height:100%;object-fit:cover}
+.inset p{position:absolute;left:var(--pad);top:50%;color:#fff;font-size:11px;max-width:260px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+/* social */
+.soc{padding-top:12vw}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.sg a{aspect-ratio:16/9;overflow:hidden;display:block}
+.sg img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.sg a:hover img{transform:scale(1.08)}
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);padding:9vw var(--pad) 0;max-width:1400px;margin:0 auto}
+.visit h2{font-size:clamp(28px,3.8vw,60px);margin-bottom:22px}
+.visit p{max-width:360px;color:#4b4842;margin-bottom:24px;font-size:12.5px}
+.visit dl{display:grid;grid-template-columns:90px 1fr;gap:10px 0;font-size:12px;border-top:1px solid #d6d2ca;padding-top:16px;max-width:420px}
+.visit dt{color:var(--mut)}
+.pick h4{font-weight:400;color:var(--mut);margin:0 0 8px;font-size:11px}
+.pick .row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.pick .row button{padding:9px 15px;border:1px solid #cfcac1;border-radius:99px;font-size:12px;transition:.2s}
+.pick .row button:hover{border-color:var(--ink)}.pick .row button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);padding:14px 26px;border-radius:99px;font-size:12px;transition:.3s}
+.cta:hover{background:#444}.cta.light{background:var(--bg);color:var(--ink)}.cta.light:hover{background:#fff}
+.sel{margin-top:14px;min-height:20px;font-size:12px}
+/* footer */
+footer{background:#050505;color:#f4f2ee;margin-top:11vw;padding:34px var(--pad) 0;overflow:hidden}
+footer .g{display:grid;grid-template-columns:1.3fr 1.5fr 1fr 1fr 1fr;gap:24px;font-size:11px;line-height:1.7}
+footer .g b{display:block;color:#7d7a74;font-weight:400}
+footer a{display:block}footer a:hover{opacity:.55}
+footer .nl{border-bottom:1px solid #4a4843;display:flex;gap:6px;padding:4px 0 8px;margin-top:10px}
+footer .nl input{flex:1;background:none;border:0;outline:0;color:inherit;font:inherit}
+footer .big-wm{font-family:Unbounded,sans-serif;font-weight:800;font-size:27vw;line-height:.72;letter-spacing:-.06em;text-transform:lowercase;white-space:nowrap;margin:8vw 0 0;text-align:center;transform:translateY(6%)}
+/* modal / drawer */
+.ov{position:fixed;inset:0;background:rgba(10,10,10,.55);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+.ov.on{display:flex}
+.md{background:var(--bg);max-width:760px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr;position:relative}
+.md .im img{width:100%;aspect-ratio:16/9;object-fit:cover;min-height:0}
+.md .tx{padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.md h3{font-size:clamp(30px,3.4vw,50px);margin:10px 0 14px}
+.md p{max-width:340px;color:#4b4842;font-size:12.5px}
+.md table{width:100%;border-collapse:collapse;margin:20px 0}.md td{padding:9px 0;border-top:1px solid #d6d2ca;font-size:12px}.md td:first-child{color:var(--mut);width:110px}
+.md .x{position:absolute;right:14px;top:12px;width:34px;height:34px;border-radius:50%;background:var(--bg);z-index:2;font-size:14px}
+.md .btns{display:flex;gap:8px;flex-wrap:wrap}
+.fab{position:fixed;right:20px;bottom:20px;z-index:80;background:var(--ink);color:var(--bg);padding:13px 20px;border-radius:99px;font-size:12px;transition:.3s;display:flex;gap:8px;align-items:center}
+.fab:hover{background:#444}
+.fab i{font-style:normal;background:var(--bg);color:var(--ink);border-radius:99px;min-width:20px;height:20px;display:grid;place-items:center;font-size:11px;padding:0 5px}
+.lst .it{display:grid;grid-template-columns:70px 1fr 24px;gap:14px;align-items:center;padding:12px 0;border-top:1px solid #d6d2ca;font-size:12px}
+.lst .it img{width:70px;height:70px;object-fit:cover}
+.toast{position:fixed;left:50%;bottom:78px;transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:99px;font-size:12px;z-index:120;opacity:0;pointer-events:none;transition:.4s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.fade{opacity:0;transform:translateY(24px);transition:1s cubic-bezier(.2,.6,.2,1)}.fade.in{opacity:1;transform:none}
+@media(max-width:900px){:root{--pad:16px}.top{grid-template-columns:1fr 1fr}.top>div:first-child{grid-column:1/3}.strip{grid-auto-columns:46%}.trio{grid-template-columns:1fr}.cards{grid-auto-columns:78%}.sg{grid-template-columns:repeat(3,1fr)}.sg a:nth-child(n+7){display:none}.visit,.md{grid-template-columns:1fr}.md .im img{min-height:260px}footer .g{grid-template-columns:1fr 1fr}.inset .in{width:34%;right:8%}.cats{font-size:26px}}
+.lm-block{background:var(--card)}
+@media(max-width:900px){.sg{grid-template-columns:repeat(2,1fr)}.sg a:nth-child(n+7){display:block}}
+
+.hd2{position:sticky;top:0;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 28px;background:rgba(244,242,238,.94);backdrop-filter:blur(14px);border-bottom:1px solid #0d0d0d}
+.lg2{font-family:Unbounded,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.06em;text-transform:lowercase}
+.hd2 nav{display:flex;gap:34px;font-size:13px;font-weight:500}
+.hd2 nav a,.hd2 .r2 a{position:relative}
+.hd2 nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:.3s}.hd2 nav a:hover::after{transform:scaleX(1)}
+.hd2 .r2{display:flex;gap:22px;justify-content:flex-end;align-items:center;font-size:12px}
+.cta2{background:#0d0d0d;color:#fff;border-radius:99px;padding:11px 22px;font-size:12px;font-weight:500;white-space:nowrap;border:0;cursor:pointer;transition:.3s}.cta2:hover{background:#444}
+@media(max-width:800px){.hd2{grid-template-columns:1fr auto;padding:12px 16px}.hd2 nav,.hd2 .r2 a{display:none}}
+
+.rv{padding:9vw 0 0}.rv-in{padding:0 var(--pad)}
+.rv-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.rv-h h2{font:700 clamp(30px,4vw,64px)/1 "Roboto Condensed";text-transform:uppercase}.rv-h p{color:#5a564f;font-size:13px;margin-top:10px}
+.rv-sc{display:flex;align-items:center;gap:14px;border:1px solid #0d0d0d;border-radius:99px;padding:11px 22px;font-size:12px;transition:.25s}.rv-sc:hover{background:#0d0d0d;color:#fff}
+.rv-sc b{font:700 24px "Roboto Condensed"}.rv-st{letter-spacing:2px}.rv-sc em{font-style:normal;opacity:.7}.rv-sc i{font-style:normal;font-weight:500}
+.rv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #0d0d0d}
+.rv-c{padding:26px 26px 26px 0;border-bottom:1px solid #d5d1c9;display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-height:200px}
+.rv-t{font:700 clamp(20px,1.9vw,28px)/1.15 "Roboto Condensed";text-transform:uppercase}
+.rv-f{display:flex;gap:12px;align-items:center;font-size:12px}.rv-a{width:34px;height:34px;border-radius:50%;background:#0d0d0d;color:#fff;display:grid;place-items:center;font-size:11px}.rv-f b{display:block;font-weight:500}.rv-f small{color:#9b978f;font-size:11px}
+@media(max-width:900px){.rv-g{grid-template-columns:1fr}}
+
+.rv2{padding:9vw var(--pad) 0}
+.rv2-in{display:grid;grid-template-columns:320px 1fr;gap:0;border-top:1px solid #0d0d0d}
+.rv2-s{padding:34px 30px 34px 0;border-right:1px solid #d5d1c9;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.rv2-s small{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9b978f}
+.rv2-n{font:700 clamp(90px,10vw,170px)/.85 "Roboto Condensed";letter-spacing:-.02em}
+.rv2-st{letter-spacing:4px;font-size:18px;margin-top:-14px}.rv2-s p{font-size:12px;color:#5a564f;margin-top:-14px}
+.rv2-s a{align-self:flex-start;border:1px solid #0d0d0d;border-radius:99px;padding:11px 22px;font-size:12px;font-weight:500;transition:.25s}.rv2-s a:hover{background:#0d0d0d;color:#fff}
+.rv2-m{padding:34px 0 0 40px;display:flex;flex-direction:column}
+.rv2-m h2{font:700 clamp(30px,4vw,64px)/1 "Roboto Condensed";text-transform:uppercase;margin-bottom:26px}
+.rv2-big{display:flex;flex-direction:column;gap:22px;transition:opacity .22s,transform .22s}.rv2-big.sw{opacity:0;transform:translateY(8px)}
+.rv2-q{font:700 120px/.5 "Roboto Condensed";height:50px;color:#0d0d0d}
+.rv2-big p{font:700 clamp(26px,3.2vw,50px)/1.08 "Roboto Condensed";text-transform:uppercase;max-width:900px}
+.rv2-big footer{display:flex;gap:14px;align-items:center;font-size:12px}.rv2-big footer i{width:40px;height:40px;border-radius:50%;background:#0d0d0d;color:#fff;display:grid;place-items:center;font-style:normal;font-size:12px}
+.rv2-big b{display:block;font-weight:500;font-size:13px}.rv2-big small{color:#9b978f}
+.rv2-r{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;border-top:1px solid #d5d1c9}
+.rv2-c{background:none;border:0;border-right:1px solid #d5d1c9;padding:18px 18px 4px 0;margin-right:18px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;gap:14px;cursor:pointer;font:inherit;color:inherit;transition:.25s;min-height:110px}
+.rv2-c:last-child{border:0}
+.rv2-c span{font-size:12px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.rv2-c em{font-style:normal;font-size:11px;color:#9b978f}
+.rv2-c:hover span,.rv2-c.on span{text-decoration:underline}
+@media(max-width:1000px){.rv2-in{grid-template-columns:1fr}.rv2-s{border:0;padding-right:0}.rv2-m{padding-left:0}.rv2-r{grid-template-columns:repeat(2,1fr)}}
+
+.rv3{padding:9vw 0 0}
+.rv3-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.rv3-sc{display:flex;align-items:center;gap:12px;font-size:13px}.rv3-sc b{font-size:24px}.rv3-sc span{color:#f0b429;letter-spacing:2px}.rv3-sc em{font-style:normal;opacity:.65}
+.rv3-sl{transition:opacity .18s,transform .18s}.rv3-sl.o{opacity:0;transform:translateY(8px)}
+.rv3-h{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
+.rv3-av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:22px}
+.rv3-m small{display:block;font-size:12px;letter-spacing:.08em;opacity:.55;margin-bottom:6px}.rv3-m small i{font-style:normal;margin:0 8px}
+.rv3-m b{font-weight:500;font-size:30px;line-height:1.1}
+.rv3-st{color:#f0b429;font-size:30px;letter-spacing:4px;white-space:nowrap}
+.rv3-b{display:grid;grid-template-columns:76px 1fr;gap:22px;margin-top:30px}
+.rv3-q{font:700 90px/.9 Georgia,serif;opacity:.2}
+.rv3-b p{font-size:clamp(18px,1.7vw,24px);line-height:1.65;max-width:980px;opacity:.85}
+.rv3-btn{display:inline-block;margin:26px 0 0 98px;border:1px solid currentColor;padding:15px 30px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;transition:.25s}.rv3-btn:hover{opacity:1;background:#111;color:#fff;border-color:#111}
+.rv3-nav{display:flex;justify-content:space-between;align-items:center;margin-top:34px;padding-top:20px;border-top:1px solid rgba(0,0,0,.12)}
+.rv3-dots{display:flex;gap:8px}.rv3-dots button{width:9px;height:9px;border-radius:50%;background:rgba(0,0,0,.2);transition:.25s;border:0;cursor:pointer;padding:0}.rv3-dots button.on{background:#111;width:26px;border-radius:99px}
+.rv3-ar{display:flex;align-items:center;gap:12px;font-size:12px}.rv3-ar button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,0,0,.25);background:none;cursor:pointer;font-size:15px;transition:.25s}.rv3-ar button:hover{background:#111;color:#fff;border-color:#111}
+.rv3-hint{font-size:11px;opacity:.5;margin-top:12px;text-align:center}
+@media(max-width:800px){.rv3-h{grid-template-columns:auto 1fr}.rv3-st{grid-column:1/3;font-size:22px}.rv3-m b{font-size:22px}.rv3-av{width:56px;height:56px;font-size:17px}.rv3-b{grid-template-columns:1fr}.rv3-q{display:none}.rv3-btn{margin-left:0}}
+.rv3{padding:9vw var(--pad) 0}.rv3-top h2{font:700 clamp(30px,4vw,64px)/1 "Roboto Condensed";text-transform:uppercase}.rv3-box{border-top:1px solid #0d0d0d;padding:44px 0 10px}.rv3-av{background:#0d0d0d;color:#fff}.rv3-m b{font-family:"Roboto Condensed";text-transform:uppercase;font-weight:700;font-size:36px}.rv3-b p{font-size:clamp(18px,1.6vw,22px)}.rv3-btn{border-radius:99px}
+
+.rv4{--rh:98px;padding:9vw 0 0}
+.rv4-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.rv4-sc{display:flex;align-items:center;gap:12px;font-size:13px}.rv4-sc b{font-size:24px}.rv4-sc span{color:#f0b429;letter-spacing:2px}.rv4-sc em{font-style:normal;opacity:.6}
+.rv4-box{position:relative}
+.rv4-l{height:calc(var(--rh)*4);overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.25) transparent}
+.rv4-l::-webkit-scrollbar{width:5px}.rv4-l::-webkit-scrollbar-thumb{background:rgba(0,0,0,.25);border-radius:9px}
+.rv4-r{height:var(--rh);scroll-snap-align:start;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:0 22px;border-bottom:1px solid rgba(0,0,0,.09);color:inherit;text-decoration:none;transition:background .2s}
+.rv4-r:hover{background:rgba(0,0,0,.035)}
+.rv4-av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600}
+.rv4-n{display:flex;gap:10px;align-items:baseline;margin-bottom:3px}.rv4-n b{font-size:15px;font-weight:600}.rv4-n small{font-size:11px;opacity:.5}
+.rv4-t p{font-size:14px;line-height:1.45;opacity:.82;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:880px}
+.rv4-st{color:#f0b429;font-size:15px;letter-spacing:3px;white-space:nowrap}
+.rv4-fade{position:absolute;left:0;right:0;bottom:0;height:34px;pointer-events:none}
+.rv4-h{font-size:11px;opacity:.55;margin-top:12px;text-align:center}.rv4-h a{text-decoration:underline}
+@media(max-width:800px){.rv4{--rh:116px}.rv4-r{grid-template-columns:auto 1fr;padding:0 12px}.rv4-st{display:none}}
+.rv4{padding:9vw var(--pad) 0}.rv4-top h2{font:700 clamp(30px,4vw,64px)/1 "Roboto Condensed";text-transform:uppercase}.rv4-box{border-top:1px solid #0d0d0d}.rv4-av{background:#0d0d0d;color:#fff;border-radius:50%}.rv4-n b{font-family:"Roboto Condensed";text-transform:uppercase;font-size:18px}.rv4-r{padding-left:0}.rv4-fade{background:linear-gradient(transparent,#F4F2EE)}
+</style>
+<link rel="stylesheet" href="assets/lead.css">
+</head>
+<body>
+
+<header class="hd2"><a class="lg2" href="variant-2.html">azur</a>
+  <nav><a href="variant-2-catalog.html">Каталог</a><a href="#about">О нас</a><a href="#visit">Шоурум</a></nav>
+  <div class="r2"><span class="socl"><a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".8" fill="currentColor"/></svg></a><a href="https://wa.me/996553387878" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l4.9-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1112 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.500-.7-2.400-1.300-3.400-2.900-.3-.4.300-.4.800-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.7.700-1 1.500-1 2.300.1 1 .5 2 1.200 2.800 1.300 1.700 2.900 2.900 4.900 3.600 1.800.6 2.500.5 3.300.4.600-.1 1.500-.6 1.700-1.300.2-.6.2-1.100.1-1.200l-.5-.2z"/></svg></a></span><button class="cta2" data-lead="general" data-source="header">Оставить заявку</button></div>
+</header>
+
+<div class="wm" id="wm" aria-label="azur"><span>az</span><span class="ph" id="wph"></span><span>ur</span></div>
+
+<section class="cats cond fade" id="catalog"><span id="cl"></span></section>
+<div class="strip" id="strip"></div>
+<div class="hint"><span id="cnt"></span><span>Нажмите на фото, чтобы открыть · <a href="variant-2-catalog.html" style="text-decoration:underline">Весь каталог →</a></span></div>
+
+<section class="sec" id="about">
+  <h2 class="h2 cond fade">Ваши идеи — в реальность</h2>
+  <div class="trio" id="trio"></div>
+</section>
+
+<section class="sec">
+  <h2 class="h2 cond fade">Бренд, рождённый любовью к природе</h2>
+  <div class="cards">
+    <div class="cd"><img src="img/f15.jpg" style="object-position:70% 50%" alt=""><small>01</small><div><h3 class="cond">Натуральные<br>материалы</h3></div><p>Тик, алюминий и уличные ткани. Материалы, которые остаются красивыми под солнцем, дождём и снегом.</p></div>
+    <div class="cd"><img src="img/f19.jpg" style="object-position:40% 50%" alt=""><small>02</small><div><h3 class="cond">Подбор под<br>вашу террасу</h3></div><p>Модульные диваны и обеденные группы собираем под размер и форму вашего пространства.</p></div>
+    <div class="cd"><img src="img/f21.jpg" style="object-position:45% 50%" alt=""><small>03</small><div><h3 class="cond">Для дома<br>и бизнеса</h3></div><p>Мебель для частных садов, ресторанов, отелей и террас бизнес-центров.</p></div>
+    <div class="cd"><img src="img/f23.jpg" style="object-position:30% 50%" alt=""><small>04</small><div><h3 class="cond">Higold<br>в Кыргызстане</h3></div><p>Мы эксклюзивный представитель Higold. Все коллекции можно увидеть и потрогать в шоуруме.</p></div>
+  </div>
+</section>
+
+<div class="full fade"><img src="img/f17_m.jpg" alt=""><p>Мебель, из которой не хочется уходить с террасы.</p></div>
+
+<div class="stack" style="margin-top:1px"><img src="img/f23_m.jpg" alt=""></div>
+<div class="inset" style="margin-top:1px"><img src="img/f01_m.jpg" alt=""><p>Шезлонги и дэйбеды для тихого отдыха у воды и под сенью сосен.</p><div class="in"><img src="img/f07.jpg" alt=""></div></div>
+
+<section class="soc">
+  <h2 class="h2 cond fade">Делимся любовью к садам<br>#azuroutdoor</h2>
+  <div class="sg" id="sg"></div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="fade"><h2 class="cond">Приезжайте<br>в шоурум</h2><p>Потрогайте тик, оцените ткани и подберите композицию под вашу террасу вместе с нами.</p>
+    <dl><dt>Адрес</dt><dd>Ул. Исакеева 1/1, Бишкек</dd><dt>Часы</dt><dd>Ежедневно, 9:00 — 18:00</dd><dt>WhatsApp</dt><dd>+996 553 387 878</dd></dl></div>
+  <div class="pick fade"><h4>День</h4><div class="row" id="dd"></div><h4>Время</h4><div class="row" id="tt"></div><a class="cta" id="bgo" target="_blank">Записаться в WhatsApp →</a> <button class="cta light" data-lead="showroom" data-source="visit" style="border:1px solid #cfcac1;margin-left:6px">Через форму</button><div class="sel" id="sel"></div></div>
+</section>
+
+<section class="rv4" id="reviews"><div class="rv4-top"><h2>Отзывы клиентов</h2><a class="rv4-sc" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><b>5,0</b><span>★★★★★</span><em>18 оценок в 2ГИС</em></a></div>
+<div class="rv4-box"><div class="rv4-l"><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">A</span><div class="rv4-t"><div class="rv4-n"><b>Adele</b><small>Отзыв подтверждён</small></div><p>Купила Боррамео, лучший диванный набор, который у меня был. Качество 100% соответствует цене. Отлично вписалась в мою террасу.</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">КЗ</span><div class="rv4-t"><div class="rv4-n"><b>Каниет Замирбекович</b><small>Частый гость</small></div><p>Шикарное качество мебели и шикарное обслуживание</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">KM</span><div class="rv4-t"><div class="rv4-n"><b>Kamila Massanova</b><small>Отзыв подтверждён</small></div><p>Отличная мебель и очень профессиональный персонал ❤️</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">АК</span><div class="rv4-t"><div class="rv4-n"><b>Айжамал Киндербаева</b><small>Отзыв в 2ГИС</small></div><p>Отличная мебель!</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">АК</span><div class="rv4-t"><div class="rv4-n"><b>А. К.</b><small>Отзыв в 2ГИС</small></div><p>Шикарная мебель шикарного качества 😍🔥🔥🔥</p></div><span class="rv4-st">★★★★★</span></a></div><div class="rv4-fade"></div></div>
+<p class="rv4-h">Листайте колесом мыши прямо в блоке · <a href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener">Все отзывы в 2ГИС →</a></p></section>
+<section class="sec" id="lead"><div style="padding:0 var(--pad)"><div class="lm-block"><div><h2>Оставьте<br>заявку</h2><p>Имя и телефон. Расскажем про коллекции, цвета тканей и стоимость.</p></div><div data-lead-inline="general" data-source="home-block"></div></div></div></section>
+
+<footer>
+  <div class="g">
+    <div>Azur — премиальная мебель для садов и террас. Эксклюзивный представитель Higold.</div>
+    <div><b>Узнавать о новинках</b><div class="nl"><input id="nlin" placeholder="Ваше имя или телефон"><button id="nlb">→</button></div></div>
+    <div><b>Каталог</b><a href="variant-2-catalog.html?cat=sofas">Диваны</a><a href="variant-2-catalog.html?cat=armchairs">Кресла</a><a href="variant-2-catalog.html?cat=dining">Обеденные группы</a><a href="variant-2-catalog.html?cat=loungers">Шезлонги</a></div>
+    <div><b>Связь</b><a href="#" data-lead="general" data-source="footer">Оставить заявку</a><a href="https://wa.me/996553387878" target="_blank">WhatsApp</a><a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank">Instagram</a></div>
+    <div><b>Шоурум</b>Ул. Исакеева 1/1<br>Бишкек<br>9:00 — 18:00</div>
+  </div>
+  <div class="big-wm">azur</div>
+</footer>
+
+<button class="fab" id="fab">Запрос <i id="fc">0</i></button>
+<div class="ov" id="ov"><div class="md" id="md"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const WA='https://wa.me/996553387878?text=',enc=encodeURIComponent;
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2000)};
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1});
+$$('.fade').forEach(e=>io.observe(e));
+/* wordmark photo cycles */
+const WP=['f05','f15','f12','f10'];let wi=0;
+$('#wph').innerHTML=WP.map((k,i)=>`<img src="img/${k}.jpg" style="opacity:${i?0:1}" alt="">`).join('');
+setInterval(()=>{wi=(wi+1)%WP.length;$$('#wph img').forEach((m,i)=>m.style.opacity=i===wi?1:0)},2600);
+/* products */
+const P=[
+ {n:'Vasca',t:'Угловой диван, шалфей',c:'sofas',i:'f05',pos:'50%',d:'Угловой диван на тиковом каркасе с низким столом. Цвет подушек — шалфейный.',m:'Тик · Лён'},
+ {n:'Exee',t:'Трёхместный диван, фисташка',c:'sofas',i:'f14',pos:'45%',d:'Трёхместный диван с массивными тиковыми подлокотниками.',m:'Тик · Лён'},
+ {n:'Borromeo',t:'Лаунж-кресло, пудровый',c:'armchairs',i:'f15',pos:'70%',d:'Глубокая посадка и тёплое дерево в деталях.',m:'Тик · Лён'},
+ {n:'Cocoon',t:'Подвесное кресло, лаванда',c:'armchairs',i:'f07',pos:'36%',d:'Подвесное плетёное кресло для чтения и тишины.',m:'Плетение · Лён'},
+ {n:'Nofi 2.0',t:'Обеденная группа',c:'dining',i:'f12',pos:'50%',d:'Обеденный стол и стулья с серо-голубыми подушками.',m:'Тик · Лён'},
+ {n:'Heck',t:'Шезлонг, масляно-жёлтый',c:'loungers',i:'f10',pos:'35%',d:'Шезлонг с регулируемой спинкой для отдыха у бассейна.',m:'Тик · Лён'},
+ {n:'Daybed',t:'Дэйбед, серо-голубой',c:'loungers',i:'f18',pos:'50%',d:'Дэйбед из тика под перголой для долгих вечеров.',m:'Тик · Лён'},
+ {n:'Visconti',t:'Лаунж-группа, мята',c:'sofas',i:'f20',pos:'40%',d:'Угловой диван и стол из тика для террасы на крыше.',m:'Тик · Лён'},
+ {n:'Heck II',t:'Шезлонг, сливочный',c:'loungers',i:'f09',pos:'50%',d:'Шезлонг на тиковой раме с мягким матрасом.',m:'Тик · Лён'}
+];
+const CL=[['all','Все'],['sofas','Диваны'],['armchairs','Кресла'],['dining','Обеденные группы'],['loungers','Шезлонги']];
+let cat='all',cart=[];
+function drawC(){
+ $('#cl').innerHTML=CL.map(([k,l],i)=>`<button class="${k===cat?'on':''}" data-k="${k}">${l}</button>${i<CL.length-1?'<span>, </span>':''}`).join('');
+ $$('#cl button').forEach(b=>b.onclick=()=>{cat=b.dataset.k;drawC();drawS()});
+}
+function drawS(){
+ const L=P.map((p,i)=>({...p,k:i})).filter(p=>cat==='all'||p.c===cat);
+ $('#strip').innerHTML=L.map(p=>`<div class="pt" data-k="${p.k}"><img src="img/${p.i}.jpg" style="object-position:${p.pos} 50%" alt="${p.n}" loading="lazy"><div class="tg"><span class="chip">${p.n}</span><span class="chip">по запросу</span></div></div>`).join('');
+ $('#cnt').textContent=L.length+' '+(L.length===1?'позиция':L.length<5?'позиции':'позиций');
+ $$('#strip .pt').forEach(e=>e.onclick=()=>{location.href='variant-2-product.html?id='+PID(P[+e.dataset.k].n)});
+ $('#strip').scrollTo({left:0});
+}
+drawC();drawS();
+const PID=n=>{n=n.toLowerCase();return n.includes('vasca')?'vasca':n.includes('exee')?'exee':n.includes('borromeo')?'borromeo':n.includes('cocoon')?'cocoon':n.includes('nofi')?'nofi':n.includes('heck ii')?'heck2':n.includes('heck')?'heck':n.includes('daybed')?'daybed':n.includes('visconti')?'visconti':'vasca'};
+function openP(k){const p=P[k];
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos} 50%" alt=""></div><div class="tx"><div><small style="color:var(--mut)">${CL.find(c=>c[0]===p.c)[1]}</small><h3 class="cond">${p.n}</h3><p>${p.d}</p><table><tr><td>Вариант</td><td>${p.t}</td></tr><tr><td>Материалы</td><td>${p.m}</td></tr><tr><td>Цена</td><td>По запросу</td></tr></table></div><div class="btns"><button class="cta" data-lead="product" data-product="${PID(p.n)}" data-source="modal">Получить расчёт</button><a class="cta light" style="border:1px solid #cfcac1" href="variant-2-product.html?id=${PID(p.n)}">Открыть карточку →</a><button class="cta light" id="ad" style="border:1px solid #cfcac1">В запрос</button><a class="cta light" style="border:1px solid #cfcac1" target="_blank" href="${WA}${enc('Здравствуйте! Интересует: '+p.n+' — '+p.t)}">Спросить в WhatsApp</a></div></div>`;
+ $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
+ $('#ad').onclick=()=>{cart.push(k);$('#fc').textContent=cart.length;toast('Добавлено в запрос');$('#ov').classList.remove('on')};
+}
+$('#ov').onclick=e=>{if(e.target.id==='ov')$('#ov').classList.remove('on')};
+addEventListener('keydown',e=>e.key==='Escape'&&$('#ov').classList.remove('on'));
+$('#fab').onclick=()=>{
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/f19.jpg" alt=""></div><div class="tx lst"><div><h3 class="cond">Ваш запрос</h3><div>${cart.length?cart.map((k,i)=>`<div class="it"><img src="img/${P[k].i}.jpg" style="object-position:${P[k].pos} 50%"><div>${P[k].n}<br><span style="color:var(--mut)">${P[k].t}</span></div><button data-r="${i}">✕</button></div>`).join(''):'<p>Пока пусто. Откройте карточку и нажмите «Добавить в запрос» — мы подготовим предложение.</p>'}</div></div>${cart.length?`<a class="cta" target="_blank" href="${WA}${enc('Здравствуйте! Хочу получить предложение на: '+cart.map(k=>P[k].n+' ('+P[k].t+')').join('; '))}">Отправить в WhatsApp →</a>`:''}</div>`;
+ $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
+ $$('#md [data-r]').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.r,1);$('#fc').textContent=cart.length;$('#fab').click()});
+};
+/* trio */
+const T=[['f19_h','Лаунж','Угловой диван · Vasca','45% 50%'],['f03_h','Обеды','Обеденная группа · Nofi 2.0','40% 50%'],['f23_h','Тишина','Лаунж-кресла · Borromeo','35% 50%']];
+$('#trio').innerHTML=T.map(t=>`<div class="big"><img src="img/${t[0]}.jpg" style="object-position:${t[3]}" alt=""><div class="chips"><span class="chip">${t[2]}</span><span class="chip">по запросу</span></div><div class="lab">${t[1]}</div></div>`).join('');
+$$('.big').forEach(b=>b.onclick=()=>{b.classList.toggle('on')});
+/* social */
+$('#sg').innerHTML=['f21','f05','f17','f12','f25','f07','f19'].map(k=>`<a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank"><img src="img/${k}.jpg" alt="" loading="lazy"></a>`).join('');
+/* visit */
+const DN=['вс','пн','вт','ср','чт','пт','сб'];let d='',t='';
+$('#dd').innerHTML=Array.from({length:6},(_,i)=>{const x=new Date();x.setDate(x.getDate()+i);return `<button>${i?DN[x.getDay()]+' ':'сегодня '}${x.getDate()}.${String(x.getMonth()+1).padStart(2,'0')}</button>`}).join('');
+$('#tt').innerHTML=['10:00','11:30','13:00','14:30','16:00','17:00'].map(x=>`<button>${x}</button>`).join('');
+function up(){$('#sel').textContent=d&&t?`Выбрано: ${d}, ${t}`:'';$('#bgo').href=WA+enc(`Здравствуйте! Хочу приехать в шоурум: ${d||'—'}, ${t||'—'}.`)}up();
+[['#dd',v=>d=v],['#tt',v=>t=v]].forEach(([s,f])=>$$(s+' button').forEach(b=>b.onclick=()=>{$$(s+' button').forEach(x=>x.classList.toggle('on',x===b));f(b.textContent);up()}));
+$('#nlb').onclick=()=>{const v=$('#nlin').value.trim();if(!v)return toast('Напишите имя или телефон');window.open(WA+enc('Здравствуйте! Хочу узнавать о новинках. '+v),'_blank')};
+</script>
+<form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
+</form>
+<script src="assets/data.js"></script>
+<script src="assets/lead.js"></script>
+</body>
+</html>

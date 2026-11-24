@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Варианты верхнего меню — AZUR</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,sans-serif;background:#ececec;color:#111;-webkit-font-smoothing:antialiased;padding:40px 4vw 80px}
+h1{font-size:28px;font-weight:600;margin-bottom:6px}.lead{color:#666;margin-bottom:34px;font-size:14px}
+.v{margin-bottom:46px}
+.v h2{font-size:18px;font-weight:600;margin-bottom:4px}.v p{color:#666;font-size:13px;margin-bottom:12px;max-width:760px}
+.stage{position:relative;height:430px;border-radius:16px;overflow:hidden;background:#333 url(img/f17_h.jpg) center 68%/cover;box-shadow:0 10px 40px rgba(0,0,0,.14)}
+.stage.b{background-image:url(img/f03_h.jpg)}.stage.c{background-image:url(img/f19_h.jpg)}.stage.d{background-image:url(img/f23_h.jpg)}
+.cap{position:absolute;left:32px;bottom:44px;color:#fff;z-index:2;text-shadow:0 2px 20px rgba(0,0,0,.35)}.cap b{display:block;font-size:40px;font-weight:500;line-height:1.1}.cap span{font-size:14px}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.logo{font-weight:300;font-size:22px;letter-spacing:.42em}
+.ic{display:flex;gap:22px;align-items:center}.ic svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.4}
+.cta{padding:10px 18px;border-radius:10px;font-size:13px;font-weight:500;white-space:nowrap}
+nav .m{display:flex;gap:30px;font-size:15px;font-weight:500}
+.m a{position:relative;padding:4px 0}.m a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:.3s}.m a:hover::after{transform:scaleX(1)}
+
+/* A — белая строка, как у крупных магазинов */
+.hA{position:absolute;top:0;left:0;right:0;background:#fff;color:#111;z-index:5;box-shadow:0 1px 0 #e6e6e6}
+.hA .row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 32px}
+.hA .l{display:flex;gap:26px;align-items:center;font-size:12px;color:#666}
+.hA .r{display:flex;gap:22px;justify-content:flex-end;align-items:center}
+.hA .row2{display:flex;justify-content:space-between;align-items:center;padding:0 32px 14px}
+.hA .cta{background:#111;color:#fff}
+
+/* B — светлое матовое стекло */
+.hB{position:absolute;top:14px;left:20px;right:20px;border-radius:18px;background:rgba(255,255,255,.78);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);color:#111;z-index:5;box-shadow:0 8px 40px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:space-between;padding:14px 26px;border:1px solid rgba(255,255,255,.7)}
+.hB .cta{background:#111;color:#fff}
+
+/* C — плавающая «капсула» по центру */
+.hC{position:absolute;top:16px;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:0 28px;color:#fff}
+.hC .logo{background:#fff;color:#111;padding:11px 22px;border-radius:99px;font-size:18px;box-shadow:0 8px 34px rgba(0,0,0,.2)}
+.hC .pillnav{display:flex;gap:6px;background:#fff;color:#111;border-radius:99px;padding:6px;box-shadow:0 8px 34px rgba(0,0,0,.2)}
+.hC .pillnav a{padding:10px 18px;border-radius:99px;font-size:14px;font-weight:500;transition:.25s}.hC .pillnav a:hover{background:#f1f1f1}.hC .pillnav a.on{background:#111;color:#fff}
+.hC .ic{background:#fff;color:#111;border-radius:99px;padding:10px 20px;box-shadow:0 8px 34px rgba(0,0,0,.2)}
+.hC .cta{background:#111;color:#fff;border-radius:99px}
+
+/* D — двухэтажное: чёрная тонкая полоса + белое меню */
+.hD{position:absolute;top:0;left:0;right:0;z-index:5}
+.hD .u{background:#111;color:#e8e8e8;font-size:12px;display:flex;justify-content:space-between;padding:9px 32px}
+.hD .u span{opacity:.8}
+.hD .w{background:#fff;color:#111;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.hD .cta{background:#111;color:#fff}.hD .m{gap:34px}
+.note{margin-top:12px;font-size:12px;color:#888}
+@media(max-width:900px){.hA .row{grid-template-columns:1fr}.hA .l,.hA .row2 .m,.hB .m,.hC .pillnav,.hD .m{display:none}}
+</style>
+</head>
+<body>
+<h1>Верхнее меню: варианты для первого дизайна</h1>
+<p class="lead">Четыре варианта на реальных фото главного экрана. Наведите на пункты меню, чтобы увидеть подчёркивание. Скажите букву, которая нравится, или что поменять.</p>
+
+<section class="v"><h2>A · Белая строка</h2><p>Классика интернет-магазина: сплошная белая панель, чёрный текст, чёрная кнопка заявки. Максимальная читаемость, фото начинается ниже. Ближе всего к референсу skdesign.</p>
+<div class="stage"><header class="hA"><div class="row"><div class="l"><span>Ваш город: <b style="color:#111">Бишкек</b></span><a href="#">+996 553 387 878</a></div><a class="logo" href="#">AZUR</a><div class="r"><span style="font-size:12px;color:#666">Дизайнерам</span><span style="font-size:12px;color:#666">Коллекции</span></div></div>
+<div class="row2"><nav><div class="m"><a href="#">Каталог</a><a href="#">Шоурум</a><a href="#">Идеи</a><a href="#">Новинки</a><a href="#">Проекты</a></div></nav><div class="ic"><button class="cta">Оставить заявку</button><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.5 3.5-7 8-7s8 2.5 8 7"/></svg><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></div></div></header>
+<div class="cap" style="bottom:36px"><b>Вечер в сосновом саду</b><span>Тиковый дэйбед под перголой</span></div></div></section>
+
+<section class="v"><h2>B · Светлое матовое стекло, плавающая панель</h2><p>Закруглённая белая полупрозрачная панель с размытием, отступы от краёв. Фото просвечивает, но текст всегда на светлом фоне. Современно и спокойно.</p>
+<div class="stage b"><header class="hB"><a class="logo" href="#">AZUR</a><nav><div class="m"><a href="#">Каталог</a><a href="#">Шоурум</a><a href="#">Идеи</a><a href="#">Новинки</a><a href="#">Проекты</a></div></nav><div class="ic"><button class="cta">Оставить заявку</button><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></div></header>
+<div class="cap"><b>Ужин с видом на море</b><span>Обеденные группы из тика</span></div></div></section>
+
+<section class="v"><h2>C · Белая капсула по центру</h2><p>Логотип слева, меню в белой капсуле по центру, иконки и заявка справа. Лёгкий «воздух» вокруг, фото остаётся главным, а пункты меню на белом читаются идеально.</p>
+<div class="stage c"><header class="hC"><a class="logo" href="#">AZUR</a><nav class="pillnav"><a class="on" href="#">Каталог</a><a href="#">Шоурум</a><a href="#">Идеи</a><a href="#">Новинки</a><a href="#">Проекты</a></nav><div style="display:flex;gap:10px;align-items:center"><button class="cta" style="background:#111;color:#fff;border-radius:99px;padding:12px 20px">Оставить заявку</button><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></div></div></header>
+<div class="cap"><b>Город у ваших ног</b><span>Диваны шалфейного цвета на крыше</span></div></div></section>
+
+<section class="v"><h2>D · Чёрная полоса и белое меню</h2><p>Тонкая чёрная строка с телефоном и адресом, под ней белая панель с логотипом и меню. Деловой и очень читаемый вариант, хорошо подходит для магазина с шоурумом.</p>
+<div class="stage d"><header class="hD"><div class="u"><span>Исакеева 1/1, Бишкек · ежедневно 9:00–18:00</span><span>+996 553 387 878 · WhatsApp</span></div><div class="w"><a class="logo" href="#">AZUR</a><nav><div class="m"><a href="#">Каталог</a><a href="#">Шоурум</a><a href="#">Идеи</a><a href="#">Новинки</a><a href="#">Проекты</a></div></nav><div class="ic"><button class="cta">Оставить заявку</button><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></div></div></header>
+<div class="cap"><b>Двор, где тихо</b><span>Лаунж-кресла в сиреневых тонах</span></div></div></section>
+<p class="note">Меню остаётся таким же и после прокрутки: при скролле во всех вариантах оно становится компактной белой строкой.</p>
+</body>
+</html>

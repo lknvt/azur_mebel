@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="ru" data-v="1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AZUR — садовая мебель Higold, Бишкек</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#000;--k:#212121;--mut:#8a8a8a;--g:#F7F7F8;--ln:#e6e6e8;--pad:50px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,system-ui,sans-serif;color:#000;background:#fff;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.4}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}ul{list-style:none}img{display:block}
+.w{padding:0 var(--pad);max-width:1920px;margin:0 auto}
+/* ---------- header ---------- */
+.hd{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff;transition:background .3s}
+.hd .top{height:44px;display:flex;justify-content:space-between;align-items:center;padding:0 var(--pad);font-size:13px;position:relative}
+.hd .logo{position:absolute;left:50%;top:12px;transform:translateX(-50%);font-weight:300;font-size:22px;letter-spacing:.42em;margin-right:-.42em;white-space:nowrap;text-indent:.42em}
+.hd .top .r{display:flex;gap:26px;align-items:center}
+.hd .top .r span::after{content:"⌄";margin-left:6px;font-size:13px}
+.hd .nav{display:flex;align-items:center;justify-content:space-between;padding:6px var(--pad) 0 calc(var(--pad) + 380px);height:46px}
+.hd .m{display:flex;gap:34px;align-items:center;font-size:16px}
+.hd .m a:hover{opacity:.6}
+.ic{display:flex;gap:26px;align-items:center}
+.ib{position:relative;width:24px;height:24px;display:grid;place-items:center}
+.ib svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.3}
+.ib b{position:absolute;top:-6px;right:-9px;min-width:16px;height:16px;border-radius:99px;background:#000;color:#fff;font-size:10px;display:none;place-items:center;font-weight:500;padding:0 4px}
+.ib b.s{display:grid}
+.burger{display:flex;flex-direction:column;gap:5px;width:24px}.burger i{display:block;height:1.3px;background:currentColor;width:24px}.burger i:nth-child(2){width:16px}
+.hd.fx{position:fixed;background:#fff;color:#000;box-shadow:0 1px 0 var(--ln)}
+.hd.fx .top{display:none}.hd.fx .nav{padding:0 var(--pad) 0 calc(var(--pad) + 380px);height:58px}
+.hd.fx .logo{display:none}
+.hd.fx .nav::before{content:"AZUR";position:absolute;left:var(--pad);font-weight:300;font-size:20px;letter-spacing:.42em}
+/* ---------- hero ---------- */
+.hero{position:relative;aspect-ratio:16/9;max-height:100vh;min-height:520px;overflow:hidden;background:#333}
+.hero .sl{position:absolute;inset:0;opacity:0;transition:opacity .8s;background-size:cover;background-position:center 72%}
+.hero .sl.on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.22),transparent 42%),linear-gradient(180deg,rgba(0,0,0,.88),rgba(0,0,0,.66) 12%,rgba(0,0,0,.36) 24%,rgba(0,0,0,.12) 38%,transparent 50%,rgba(0,0,0,.16));pointer-events:none}
+.hero .cap{position:absolute;left:var(--pad);top:212px;color:#fff;z-index:5}
+.hero h2{font-size:42px;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+.hero p{margin:12px 0 28px;font-size:15px;font-weight:400}
+.pill{display:inline-block;padding:11px 22px;border-radius:8px;font-size:16px;background:#fff;color:#000;transition:.25s}
+.pill:hover{background:var(--k);color:#fff}
+.pill.k{background:var(--k);color:#fff;border-radius:12px;font-size:14px;padding:15px 28px}.pill.k:hover{background:#444}
+.hero .dots{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;display:flex;gap:5px;z-index:5}
+.hero .dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.3s}.hero .dots i.on{background:#fff;width:7px;height:7px;margin-top:-1px}
+.hero .ar{position:absolute;right:var(--pad);bottom:20px;display:flex;gap:6px;z-index:5}
+.cir{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.55);color:#000;display:grid;place-items:center;transition:.2s;font-size:13px;backdrop-filter:blur(4px)}
+.cir:hover{background:#fff}
+/* ---------- sections ---------- */
+section{padding-top:56px}
+.sh{display:flex;justify-content:space-between;align-items:center;min-height:56px;padding-bottom:10px;gap:12px;border-bottom:1px solid #bdbdbd;margin-bottom:24px}
+.sh h1,.sh h2{font-size:26px;font-weight:600;letter-spacing:-.01em}.sh h1{font-size:30px}
+.sh .ctl{display:flex;gap:10px;align-items:center}
+.sh .cir{background:#fff;border:1px solid var(--ln);width:26px;height:26px;font-size:11px}.sh .cir:hover{background:#000;color:#fff}
+.sh .all{font-size:12px;background:var(--g);padding:7px 14px;border-radius:99px}
+.rowx{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}.rowx::-webkit-scrollbar{display:none}
+.cat{flex:0 0 260px;scroll-snap-align:start;cursor:pointer;font-size:15px}
+.cat .im{width:260px;height:260px;background:var(--g);border-radius:8px;overflow:hidden;position:relative}
+.cat img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.cat:hover img{transform:scale(1.05)}
+.cat div.t{padding:10px 2px;font-weight:500}
+.cat.promo .im{background:#1b1b1b;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.cat.promo b{font-size:56px;font-weight:600;line-height:1}.cat.promo span{font-size:13px;color:#cfcfcf;line-height:1.5}
+.tabs{display:flex;gap:4px;margin-bottom:18px}
+.tabs button{padding:8px 18px;border-radius:99px;background:var(--g);font-size:13px;color:#777;transition:.2s}
+.tabs button.on{background:#fff;color:#000;box-shadow:inset 0 0 0 1px #000}
+.pc{flex:0 0 280px;margin-right:4px;scroll-snap-align:start;cursor:pointer;position:relative}
+.pc .im{width:280px;height:280px;background:var(--g);border-radius:8px;overflow:hidden;position:relative}
+.pc img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.pc:hover img{transform:scale(1.05)}
+.pc .tg{position:absolute;left:10px;top:9px;font-size:11px;color:#333;z-index:2}
+.pc .hv{position:absolute;right:8px;top:8px;width:32px;height:32px;display:grid;place-items:center;z-index:2}
+.pc .hv svg{width:20px;height:20px;stroke:#000;fill:none;stroke-width:1.3}.pc .hv.on svg{fill:#000}
+.pc .sw{display:flex;gap:4px;margin:10px 0 8px;align-items:center;font-size:10px;color:#888}.pc .sw i{width:10px;height:10px;border-radius:2px}
+.pc .nm{font-size:13px;line-height:1.35;min-height:35px;color:#222;padding-right:6px}
+.pc .pr{margin-top:6px;font-weight:600;font-size:14px}.pc .pr span{color:var(--mut);font-weight:400;font-size:12px}
+/* ideas */
+.cols{display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.cols i{width:20px;height:20px;border-radius:50%;cursor:pointer;border:1px solid rgba(0,0,0,.08);transition:.2s;outline:1px solid transparent;outline-offset:3px}.cols i:hover{transform:scale(1.15)}.cols i.on{outline-color:#000}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chips button{padding:8px 16px;border:1px solid var(--ln);border-radius:99px;font-size:13px;color:#555;transition:.2s}
+.chips button.on{background:#000;color:#fff;border-color:#000}.chips button:hover{border-color:#000}
+.ic1{flex:0 0 299px;margin-right:12px;scroll-snap-align:start;border-radius:10px;box-shadow:0 1px 8px rgba(0,0,0,.08);background:#fff;overflow:hidden;cursor:pointer}
+.ic1 .im{position:relative;height:238px;background:var(--g);overflow:hidden}
+.ic1 .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.ic1:hover .im img{transform:scale(1.04)}
+.dot{position:absolute;width:22px;height:22px;border-radius:50%;background:#fff;display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.dot::before{content:"";width:8px;height:8px;border-radius:50%;background:#000}
+.dot em{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);background:#fff;padding:6px 10px;border-radius:6px;font-style:normal;font-size:11px;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.dot:hover em{opacity:1}
+.ic1 .t{padding:16px 16px 0;font-size:12.5px;line-height:1.5;min-height:64px;color:#222}
+.ic1 .l{display:flex;justify-content:flex-end;padding:0 16px 16px}
+.ic1 .l i{width:30px;height:30px;border-radius:50%;background:#000;color:#fff;display:grid;place-items:center;font-style:normal;font-size:13px}
+.panel{margin-top:60px;background:var(--g);border-radius:16px;padding:26px 30px 30px 40px;display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:center}
+.panel h2{font-size:24px;font-weight:600;line-height:1.3}
+.panel p{margin:20px 0 26px;line-height:1.6;color:#333;font-size:14px}
+.panel .rowx{gap:10px}
+.pj{flex:0 0 340px;background:#fff;border-radius:10px;overflow:hidden;scroll-snap-align:start;cursor:pointer}
+.pj img{width:100%;height:220px;object-fit:cover;transition:transform .8s}.pj:hover img{transform:scale(1.04)}.pj .im{overflow:hidden}
+.pj .t{padding:14px 16px 4px;font-size:12.5px;line-height:1.5;min-height:56px}
+.pj .l{display:flex;align-items:center;gap:8px;padding:6px 16px 16px;font-size:13px}
+.pj .l i{width:24px;height:24px;border-radius:50%;background:#000;color:#fff;display:grid;place-items:center;font-style:normal;font-size:12px}
+.pcn{display:flex;gap:10px;margin-top:14px}
+.pcn .cir{background:#fff;border:1px solid var(--ln)}
+/* shop */
+.shop{border:1px solid var(--ln);border-radius:12px;padding:10px;display:grid;grid-template-columns:1fr 1.05fr;gap:10px;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.shop .a{padding:0 16px 10px 10px;display:flex;flex-direction:column}
+.shop .a .im{height:230px;border-radius:6px;overflow:hidden;margin-bottom:18px}
+.shop .a img,.shop .b img{width:100%;height:100%;object-fit:cover}
+.shop h3{font-size:22px;font-weight:600;margin-bottom:14px;line-height:1.25}
+.shop ul{display:grid;gap:9px;font-size:13px;color:#222;margin-bottom:20px}
+.shop li{display:flex;gap:10px;align-items:center}.shop li svg{width:14px;height:14px;stroke:#777;fill:none;stroke-width:1.3;flex:none}
+.shop .btns{display:flex;gap:10px;margin-top:auto;flex-wrap:wrap}
+.shop .b{border-radius:6px;overflow:hidden;min-height:420px}
+.btn2{padding:10px 16px;font-size:13px;border:1px solid var(--ln);border-radius:8px;background:#fff;transition:.2s}.btn2:hover{border-color:#000}
+.btn2.k{background:var(--k);color:#fff;border-color:var(--k)}.btn2.k:hover{background:#444}
+.des{margin-top:0;display:grid;grid-template-columns:1fr 1.5fr;background:var(--g);border-radius:16px;overflow:hidden;min-height:340px}
+.des .t{padding:32px 32px;align-self:center}
+.des h2{font-size:26px;font-weight:600;margin-bottom:16px}.des p{line-height:1.6;color:#333;max-width:360px;margin-bottom:26px;font-size:14px}
+.des img{width:100%;height:100%;object-fit:cover}
+footer{background:#1b1b1b;color:#bdbdbd;margin-top:72px;padding:52px 0 26px;font-size:13px}
+footer .g{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+footer h4{color:#fff;font-weight:500;margin-bottom:18px;font-size:14px}footer li{margin-bottom:11px}footer a:hover{color:#fff}
+footer .logo{color:#fff;font-weight:300;font-size:22px;letter-spacing:.42em}
+footer .cp{border-top:1px solid #333;margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;font-size:11px;flex-wrap:wrap;gap:10px}
+/* overlays */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.ov.on{display:flex}
+.qv{background:#fff;border-radius:16px;max-width:940px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1.1fr 1fr;position:relative}
+.qv .im{background:var(--g)}.qv .im img{width:100%;height:100%;object-fit:cover;min-height:380px}
+.qv .tx{padding:44px 38px}
+.qv h3{font-size:24px;font-weight:600;margin:8px 0 14px;line-height:1.2}
+.qv p{line-height:1.7;color:#444;margin-bottom:20px;font-size:14px}
+.qv .sws{display:flex;gap:10px;margin:8px 0 24px}.qv .sws i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(0,0,0,.12);cursor:pointer;outline:2px solid transparent;outline-offset:3px;transition:.2s}.qv .sws i.on{outline-color:#000}
+.qv .x{position:absolute;right:14px;top:14px;z-index:3;background:#fff;border:1px solid var(--ln)}
+.qv table{width:100%;border-collapse:collapse;margin-bottom:26px;font-size:13px}.qv td{padding:11px 0;border-top:1px solid var(--ln)}.qv td:first-child{color:var(--mut);width:120px}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:210;transform:translateX(100%);transition:.5s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;padding:26px}
+.dr.on{transform:none}
+.dr h3{font-size:20px;font-weight:600;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.dr .li{flex:1;overflow:auto}
+.dr .it{display:grid;grid-template-columns:70px 1fr 24px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--ln);font-size:13px}
+.dr .it img{width:70px;height:70px;object-fit:cover;border-radius:8px}.dr .it small{color:var(--mut)}
+.dr .em{color:var(--mut);padding:30px 0;line-height:1.6;font-size:14px}
+.sr{position:fixed;inset:0;z-index:220;background:#fff;transform:translateY(-100%);transition:.5s cubic-bezier(.7,0,.2,1);padding:70px var(--pad);overflow:auto}
+.sr.on{transform:none}
+.sr input{width:100%;border:0;border-bottom:1px solid #000;font:300 clamp(26px,4vw,44px) Montserrat;padding:14px 0;outline:0}
+.sr .res{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:30px}
+.sr .pc{flex:none}.sr .pc .im{width:100%}
+.mn{position:fixed;inset:0 auto 0 0;width:min(380px,100%);background:#fff;z-index:215;transform:translateX(-100%);transition:.5s cubic-bezier(.7,0,.2,1);padding:26px}
+.mn.on{transform:none}.mn a{display:block;font-size:20px;padding:14px 0;border-bottom:1px solid var(--ln)}.mn a:hover{padding-left:8px}
+.toast{position:fixed;left:50%;top:84px;white-space:nowrap;transform:translate(-50%,-30px);background:#212121;color:#fff;padding:12px 22px;border-radius:10px;font-size:13px;z-index:300;opacity:0;transition:.4s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1100px){.hd .nav,.hd.fx .nav{padding-left:var(--pad)}.hd.fx .nav::before{display:none}.hd .m a:nth-child(n+4){display:none}}
+@media(max-width:800px){:root{--pad:18px}.hd .top .r span,.hd .m a{display:none}.hd .nav,.hd.fx .nav{padding-left:var(--pad)}.hd.fx .nav::before{display:none}.hd .logo{font-size:18px}.sh h1,.sh h2{font-size:21px}.hero{height:460px;min-height:0;aspect-ratio:auto}.hero .cap{top:150px}.hero h2{font-size:30px}.cat,.cat .im{flex-basis:200px;width:200px}.cat .im{height:200px}.pc,.pc .im{flex-basis:220px;width:220px}.pc .im{height:220px}.panel,.shop,.des,.qv,footer .g{grid-template-columns:1fr}.panel{padding:22px}.pj{flex-basis:78%}.qv .im img{min-height:260px}.shop .b{min-height:260px}.ic1{flex-basis:260px}}
+
+.lead-pill{background:#fff;color:#000;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:500;transition:.25s;white-space:nowrap}
+.lead-pill:hover{opacity:.75}
+.hd.fx .lead-pill{background:#212121;color:#fff}
+.pill.ghost{background:#0b0b0b;color:#fff;border:1px solid #0b0b0b;margin-left:8px}.pill.ghost:hover{background:#fff;color:#000}
+.lm-block{margin:0}
+@media(max-width:800px){.hd .ic{gap:12px}.hd .nav .m{gap:0}.lead-pill{padding:7px 10px;font-size:11px}.pill.ghost{margin:8px 0 0}}
+
+
+/* Меню B: светлая матовая плавающая панель */
+.hd,.hd.fx{position:fixed;top:0;left:0;right:0;background:none;box-shadow:none;color:#111;padding:14px 20px 0;z-index:60}
+.hd .bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:12px 26px;border-radius:18px;background:rgba(255,255,255,.8);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid rgba(255,255,255,.75);box-shadow:0 8px 40px rgba(0,0,0,.16);max-width:1760px;margin:0 auto}
+.hd .bl{display:flex;align-items:center;gap:18px}
+.hd .logo,.hd.fx .logo{display:block;position:static;transform:none;font-weight:300;font-size:21px;letter-spacing:.42em;margin:0;text-indent:0;color:#111;white-space:nowrap}
+.hd .burger{display:none}
+.hd .bm{display:flex;gap:32px;font-size:15px;font-weight:500}
+.hd .bm a{position:relative;padding:4px 0;color:#111}
+.hd .bm a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:#111;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.hd .bm a:hover::after{transform:scaleX(1)}
+.hd .ic{display:flex;gap:20px;align-items:center;justify-content:flex-end}
+.hd .lead-pill,.hd.fx .lead-pill{background:#111;color:#fff;border-radius:10px;padding:10px 18px;font-size:13px;font-weight:500;white-space:nowrap}
+.hd .ib{color:#111}
+.hd.fx .bar{background:rgba(255,255,255,.86)}
+.hd.fx::before{content:none}
+@media(max-width:1000px){.hd .bar{grid-template-columns:1fr auto}.hd .bm{display:none}.hd .burger{display:flex}.hd .bar{padding:10px 16px}.hd .logo{font-size:17px}.hd .ic{gap:12px}.hd .lead-pill{padding:8px 12px;font-size:11px}}
+@media(max-width:700px){.hd .ic a.ib,.hd .ic #fb{display:none}.hd .bar{gap:8px}}
+.hero .cap .pill,.hero .cap .ghost{display:none}
+.hero .cap p{margin-bottom:0}
+
+.rv{padding:70px 0 0}.rv-in{max-width:none}
+.rv-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;border-bottom:1px solid #bdbdbd;padding-bottom:16px;margin-bottom:24px}
+.rv-h h2{font-size:26px;font-weight:600}.rv-h p{color:#8a8a8a;font-size:13px;margin-top:4px}
+.rv-sc{display:flex;align-items:center;gap:12px;background:#F7F7F8;border-radius:99px;padding:10px 20px;font-size:13px;transition:.25s}.rv-sc:hover{background:#ececee}
+.rv-sc b{font-size:22px;font-weight:600}.rv-st{color:#f2a900;letter-spacing:2px}.rv-sc em{font-style:normal;color:#666}.rv-sc i{font-style:normal;font-weight:600}
+.rv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rv-c{background:#F7F7F8;border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:26px;min-height:190px}
+.rv-t{font-size:17px;line-height:1.45;font-weight:500}
+.rv-f{display:flex;gap:12px;align-items:center}.rv-a{width:40px;height:40px;border-radius:50%;background:#212121;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600}.rv-f b{display:block;font-size:14px}.rv-f small{color:#8a8a8a;font-size:12px}
+@media(max-width:900px){.rv-g{grid-template-columns:1fr}}
+
+.rv2{padding:70px 0 0}
+.rv2-in{display:grid;grid-template-columns:300px 1fr;gap:14px}
+.rv2-s{background:#212121;color:#fff;border-radius:24px;padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;min-height:420px}
+.rv2-s small{color:#a9a9a9;font-size:12px;letter-spacing:.06em}
+.rv2-n{font-size:88px;font-weight:600;line-height:1;letter-spacing:-.03em;margin-top:30px}
+.rv2-st{color:#f5b301;font-size:20px;letter-spacing:3px;margin-top:10px}.rv2-s p{color:#cfcfcf;font-size:14px;margin-top:12px}
+.rv2-s a{margin-top:30px;background:#fff;color:#111;border-radius:12px;padding:14px 18px;font-size:13px;font-weight:500;text-align:center;transition:.25s}.rv2-s a:hover{background:#e9e9e9}
+.rv2-m{background:#F7F7F8;border-radius:24px;padding:34px 38px;display:flex;flex-direction:column}
+.rv2-m h2{font-size:26px;font-weight:600;margin-bottom:22px}
+.rv2-big{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:26px;transition:opacity .22s,transform .22s}.rv2-big.sw{opacity:0;transform:translateY(8px)}
+.rv2-q{font-size:90px;line-height:.6;color:#c9c9cd;font-family:Georgia,serif;height:40px}
+.rv2-big p{font-size:clamp(22px,2.3vw,32px);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:780px}
+.rv2-big footer{display:flex;gap:14px;align-items:center}.rv2-big footer i{width:46px;height:46px;border-radius:50%;background:#212121;color:#fff;display:grid;place-items:center;font-style:normal;font-size:14px;font-weight:600}
+.rv2-big b{display:block;font-size:15px}.rv2-big small{color:#8a8a8a;font-size:12px}
+.rv2-r{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.rv2-c{background:#fff;border:1px solid #e4e4e6;border-radius:14px;padding:16px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:112px;cursor:pointer;font:inherit;transition:.25s}
+.rv2-c span{font-size:13px;line-height:1.4;color:#222;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.rv2-c em{font-style:normal;font-size:12px;color:#8a8a8a}
+.rv2-c:hover,.rv2-c.on{border-color:#111}
+@media(max-width:1000px){.rv2-in{grid-template-columns:1fr}.rv2-s{min-height:0}.rv2-r{grid-template-columns:repeat(2,1fr)}.rv2-m{padding:24px 20px}}
+
+.rv3{padding:9vw 0 0}
+.rv3-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.rv3-sc{display:flex;align-items:center;gap:12px;font-size:13px}.rv3-sc b{font-size:24px}.rv3-sc span{color:#f0b429;letter-spacing:2px}.rv3-sc em{font-style:normal;opacity:.65}
+.rv3-sl{transition:opacity .18s,transform .18s}.rv3-sl.o{opacity:0;transform:translateY(8px)}
+.rv3-h{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
+.rv3-av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:22px}
+.rv3-m small{display:block;font-size:12px;letter-spacing:.08em;opacity:.55;margin-bottom:6px}.rv3-m small i{font-style:normal;margin:0 8px}
+.rv3-m b{font-weight:500;font-size:30px;line-height:1.1}
+.rv3-st{color:#f0b429;font-size:30px;letter-spacing:4px;white-space:nowrap}
+.rv3-b{display:grid;grid-template-columns:76px 1fr;gap:22px;margin-top:30px}
+.rv3-q{font:700 90px/.9 Georgia,serif;opacity:.2}
+.rv3-b p{font-size:clamp(18px,1.7vw,24px);line-height:1.65;max-width:980px;opacity:.85}
+.rv3-btn{display:inline-block;margin:26px 0 0 98px;border:1px solid currentColor;padding:15px 30px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;transition:.25s}.rv3-btn:hover{opacity:1;background:#111;color:#fff;border-color:#111}
+.rv3-nav{display:flex;justify-content:space-between;align-items:center;margin-top:34px;padding-top:20px;border-top:1px solid rgba(0,0,0,.12)}
+.rv3-dots{display:flex;gap:8px}.rv3-dots button{width:9px;height:9px;border-radius:50%;background:rgba(0,0,0,.2);transition:.25s;border:0;cursor:pointer;padding:0}.rv3-dots button.on{background:#111;width:26px;border-radius:99px}
+.rv3-ar{display:flex;align-items:center;gap:12px;font-size:12px}.rv3-ar button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,0,0,.25);background:none;cursor:pointer;font-size:15px;transition:.25s}.rv3-ar button:hover{background:#111;color:#fff;border-color:#111}
+.rv3-hint{font-size:11px;opacity:.5;margin-top:12px;text-align:center}
+@media(max-width:800px){.rv3-h{grid-template-columns:auto 1fr}.rv3-st{grid-column:1/3;font-size:22px}.rv3-m b{font-size:22px}.rv3-av{width:56px;height:56px;font-size:17px}.rv3-b{grid-template-columns:1fr}.rv3-q{display:none}.rv3-btn{margin-left:0}}
+.rv3{padding-top:70px}.rv3-top h2{font-size:26px;font-weight:600}.rv3-box{background:#F7F7F8;border-radius:24px;padding:44px 52px 28px;cursor:default}.rv3-av{background:#212121;color:#fff}.rv3-btn{border-radius:12px;background:#fff}
+
+.rv4{--rh:98px;padding:9vw 0 0}
+.rv4-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.rv4-sc{display:flex;align-items:center;gap:12px;font-size:13px}.rv4-sc b{font-size:24px}.rv4-sc span{color:#f0b429;letter-spacing:2px}.rv4-sc em{font-style:normal;opacity:.6}
+.rv4-box{position:relative}
+.rv4-l{height:calc(var(--rh)*4);overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.25) transparent}
+.rv4-l::-webkit-scrollbar{width:5px}.rv4-l::-webkit-scrollbar-thumb{background:rgba(0,0,0,.25);border-radius:9px}
+.rv4-r{height:var(--rh);scroll-snap-align:start;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:0 22px;border-bottom:1px solid rgba(0,0,0,.09);color:inherit;text-decoration:none;transition:background .2s}
+.rv4-r:hover{background:rgba(0,0,0,.035)}
+.rv4-av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600}
+.rv4-n{display:flex;gap:10px;align-items:baseline;margin-bottom:3px}.rv4-n b{font-size:15px;font-weight:600}.rv4-n small{font-size:11px;opacity:.5}
+.rv4-t p{font-size:14px;line-height:1.45;opacity:.82;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:880px}
+.rv4-st{color:#f0b429;font-size:15px;letter-spacing:3px;white-space:nowrap}
+.rv4-fade{position:absolute;left:0;right:0;bottom:0;height:34px;pointer-events:none}
+.rv4-h{font-size:11px;opacity:.55;margin-top:12px;text-align:center}.rv4-h a{text-decoration:underline}
+@media(max-width:800px){.rv4{--rh:116px}.rv4-r{grid-template-columns:auto 1fr;padding:0 12px}.rv4-st{display:none}}
+.rv4{padding-top:70px}.rv4-top h2{font-size:26px;font-weight:600}.rv4-box{background:#F7F7F8;border-radius:20px;overflow:hidden;padding:6px 0}.rv4-av{background:#212121;color:#fff}.rv4-fade{background:linear-gradient(transparent,#F7F7F8)}
+</style>
+<link rel="stylesheet" href="assets/lead.css">
+</head>
+<body>
+
+<header class="hd" id="hd"><div class="bar">
+  <div class="bl"><button class="burger" id="bg" aria-label="Меню"><i></i><i></i><i></i></button><a class="logo" href="variant-1.html">AZUR</a></div>
+  <nav class="bm"><a href="variant-1-catalog.html">Каталог</a><a href="#showroom">Шоурум</a><a href="#ideas">Идеи</a><a href="#catalog">Новинки</a><a href="#projects">Проекты</a></nav>
+  <div class="ic">
+      <button class="lead-pill" data-lead="general" data-source="header">Оставить заявку</button>
+      <button class="ib" id="sb" aria-label="Поиск"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      <span class="socl ibs"><a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".8" fill="currentColor"/></svg></a><a href="https://wa.me/996553387878" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l4.9-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1112 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.500-.7-2.400-1.300-3.400-2.900-.3-.4.300-.4.800-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.7.700-1 1.500-1 2.300.1 1 .5 2 1.200 2.800 1.300 1.700 2.900 2.900 4.900 3.600 1.800.6 2.500.5 3.300.4.600-.1 1.500-.6 1.700-1.300.2-.6.2-1.100.1-1.200l-.5-.2z"/></svg></a></span>
+      <button class="ib" id="fb" aria-label="Избранное"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.500-7-10a4 4 0 017-2.500A4 4 0 0119 10c0 5.500-7 10-7 10z"/></svg><b id="fc"></b></button>
+      <button class="ib" id="cb" aria-label="Запрос"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="12" rx="2"/><path d="M9 8a3 3 0 016 0"/></svg><b id="cc"></b></button>
+    </div>
+</div></header>
+
+<div class="hero" id="hero">
+  <div class="cap"><h2 id="h1"></h2><p id="hp"></p><a class="pill" href="variant-1-catalog.html">Смотреть каталог</a><button class="pill ghost" data-lead="general" data-source="hero">Оставить заявку</button></div>
+  <div class="dots" id="dots"></div>
+  <div class="ar"><button class="cir" id="hp1">‹</button><button class="cir" id="hn1">›</button></div>
+</div>
+
+<div class="w">
+<section id="cats" style="padding-top:30px">
+  <div class="sh"><h1>Садовая мебель от AZUR</h1><div class="ctl"><button class="cir" id="cl">‹</button><button class="cir" id="cr">›</button></div></div>
+  <div class="rowx" id="catsR"></div>
+</section>
+
+<section id="catalog">
+  <div class="sh"><h2>Рекомендуем</h2><div class="ctl"><button class="cir" id="pl">‹</button><button class="cir" id="pr">›</button></div></div>
+  <div class="tabs" id="tabs"><button class="on" data-t="all">Популярное</button><button data-t="new">Новинки</button><button data-t="stock">В наличии</button></div>
+  <div class="rowx" id="rail"></div>
+</section>
+
+<section id="ideas">
+  <div class="sh"><h2>Идеи для террас и садов</h2><div class="ctl"><button class="cir" id="il">‹</button><button class="cir" id="ir">›</button></div></div>
+  <div class="cols" id="cols"></div>
+  <div class="chips" id="chips"></div>
+  <div class="rowx" id="idr"></div>
+
+  <div class="panel" id="projects">
+    <div><h2>Наша мебель<br>в проектах</h2><p>Каждая терраса уникальна. Мы дополняем замысел мебелью, в которой сочетаются тактильность, форма и качество, достойные открытого воздуха.</p><button class="pill k" id="allp">Все проекты</button><div class="pcn"><button class="cir" id="ppl">‹</button><button class="cir" id="ppr">›</button></div></div>
+    <div class="rowx" id="prj"></div>
+  </div>
+</section>
+
+<section id="showroom">
+  <div class="sh"><h2>Шоурум AZUR</h2><div class="ctl"><a class="all" href="https://www.instagram.com/azur.outdoor.kg/" target="_blank">Смотреть все</a></div></div>
+  <div class="chips"><button class="on">Бишкек</button></div>
+  <div class="shop">
+    <div class="a"><div class="im"><img data-u="f19" alt=""></div><h3>Шоурум в Бишкеке на Исакеева</h3>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.500"/></svg>Ул. Исакеева 1/1</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Ежедневно с 9:00 до 18:00</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>+996 553 387 878</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 20V10l8-6 8 6v10z"/></svg>Эксклюзивный представитель Higold</li>
+      </ul>
+      <div class="btns"><a class="btn2 k" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%D0%98%D1%81%D0%B0%D0%BA%D0%B5%D0%B5%D0%B2%D0%B0+1%2F1+%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA">Построить маршрут</a><button class="btn2" id="book">Запланировать посещение</button></div></div>
+    <div class="b"><img data-u="f03" alt=""></div>
+  </div>
+</section>
+
+<section id="designers">
+  <div class="des"><div class="t"><h2>Вы архитектор или дизайнер?</h2><p>Приглашаем к сотрудничеству дизайнеров, архитекторов и владельцев ресторанов и отелей — всех, кто создаёт открытые пространства. Подберём мебель Higold под ваш проект.</p><button class="pill k" data-lead="b2b" data-source="designers">Оставить заявку</button></div><img data-u="f23" alt=""></div>
+</section>
+</div>
+
+<div class="w"><section class="rv4" id="reviews"><div class="rv4-top"><h2>Отзывы клиентов</h2><a class="rv4-sc" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><b>5,0</b><span>★★★★★</span><em>18 оценок в 2ГИС</em></a></div>
+<div class="rv4-box"><div class="rv4-l"><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">A</span><div class="rv4-t"><div class="rv4-n"><b>Adele</b><small>Отзыв подтверждён</small></div><p>Купила Боррамео, лучший диванный набор, который у меня был. Качество 100% соответствует цене. Отлично вписалась в мою террасу.</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">КЗ</span><div class="rv4-t"><div class="rv4-n"><b>Каниет Замирбекович</b><small>Частый гость</small></div><p>Шикарное качество мебели и шикарное обслуживание</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">KM</span><div class="rv4-t"><div class="rv4-n"><b>Kamila Massanova</b><small>Отзыв подтверждён</small></div><p>Отличная мебель и очень профессиональный персонал ❤️</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">АК</span><div class="rv4-t"><div class="rv4-n"><b>Айжамал Киндербаева</b><small>Отзыв в 2ГИС</small></div><p>Отличная мебель!</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">АК</span><div class="rv4-t"><div class="rv4-n"><b>А. К.</b><small>Отзыв в 2ГИС</small></div><p>Шикарная мебель шикарного качества 😍🔥🔥🔥</p></div><span class="rv4-st">★★★★★</span></a></div><div class="rv4-fade"></div></div>
+<p class="rv4-h">Листайте колесом мыши прямо в блоке · <a href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener">Все отзывы в 2ГИС →</a></p></section>
+</div>
+<div class="w"><section id="lead" style="padding-top:56px"><div class="lm-block"><div><h2>Подберём мебель под вашу террасу</h2><p>Оставьте имя и телефон. Расскажем про коллекции, цвета тканей и стоимость.</p></div><div data-lead-inline="general" data-source="home-block"></div></div></section></div>
+
+<footer><div class="w"><div class="g">
+  <div><div class="logo">AZUR</div><p style="margin-top:18px;line-height:1.7;max-width:260px">Премиальная мебель для садов и террас. Эксклюзивный представитель Higold в Кыргызстане.</p></div>
+  <div><h4>Каталог</h4><ul><li><a href="variant-1-catalog.html?cat=sofas">Диваны</a></li><li><a href="variant-1-catalog.html?cat=armchairs">Кресла</a></li><li><a href="variant-1-catalog.html?cat=dining">Обеденные группы</a></li><li><a href="variant-1-catalog.html?cat=loungers">Шезлонги и дэйбеды</a></li></ul></div>
+  <div><h4>Компания</h4><ul><li><a href="#projects">Проекты</a></li><li><a href="#designers">Дизайнерам</a></li><li><a href="#showroom">Шоурум</a></li></ul></div>
+  <div><h4>Контакты</h4><ul><li>Ул. Исакеева 1/1, Бишкек</li><li>Ежедневно 9:00 — 18:00</li><li><a href="#" data-lead="general" data-source="footer">Оставить заявку</a></li><li><a href="https://wa.me/996553387878" target="_blank">WhatsApp</a></li><li><a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank">Instagram</a></li></ul></div>
+</div><div class="cp"><span>© AZUR Outdoor Furniture</span><span>Макет. Изображения сгенерированы, временные</span></div></div></footer>
+
+<div class="ov" id="qvo"><div class="qv" id="qv"></div></div>
+<div class="ov" id="bko"><div class="qv" id="bq" style="max-width:560px;grid-template-columns:1fr"></div></div>
+<aside class="dr" id="dr"></aside>
+<div class="sr" id="sr"><button class="cir" style="position:absolute;right:var(--pad);top:22px;background:var(--g)" id="sx">✕</button><input id="si" placeholder="Поиск по коллекциям"><div class="res" id="sres"></div></div>
+<nav class="mn" id="mn"><button class="cir" style="background:var(--g);margin-bottom:20px" id="mx">✕</button><a href="#cats">Каталог</a><a href="#catalog">Новинки</a><a href="#ideas">Идеи</a><a href="#projects">Проекты</a><a href="#showroom">Шоурум</a><a href="#designers">Дизайнерам</a></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const IMG={f01:'img/f01.jpg',f03:'img/f03.jpg',f05:'img/f05.jpg',f07:'img/f07.jpg',f09:'img/f09.jpg',f10:'img/f10.jpg',f12:'img/f12.jpg',f14:'img/f14.jpg',f15:'img/f15.jpg',f17:'img/f17.jpg',f18:'img/f18.jpg',f19:'img/f19.jpg',f20:'img/f20.jpg',f21:'img/f21.jpg',f22:'img/f22.jpg',f23:'img/f23.jpg',f25:'img/f25.jpg',f26:'img/f26.jpg'};const IMGH={f01:'img/f01_h.jpg',f03:'img/f03_h.jpg',f05:'img/f05_h.jpg',f07:'img/f07_h.jpg',f09:'img/f09_h.jpg',f10:'img/f10_h.jpg',f12:'img/f12_h.jpg',f14:'img/f14_h.jpg',f15:'img/f15_h.jpg',f17:'img/f17_h.jpg',f18:'img/f18_h.jpg',f19:'img/f19_h.jpg',f20:'img/f20_h.jpg',f21:'img/f21_h.jpg',f22:'img/f22_h.jpg',f23:'img/f23_h.jpg',f25:'img/f25_h.jpg',f26:'img/f26_h.jpg'};const POS={"f15": "68% 50%", "f07": "36% 50%", "f10": "40% 50%", "f05": "50% 55%", "f14": "50% 55%"};
+const I=k=>`src="${IMG[k]}" style="object-position:${(POS[k]||'50% 50%')}"`;
+$$('img[data-u]').forEach(i=>i.src=IMGH[i.dataset.u]);
+const WA='https://wa.me/996553387878?text=',enc=encodeURIComponent;
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)};
+const scr=(id,dx)=>$(id).scrollBy({left:dx,behavior:'smooth'});
+[['#cl','#catsR',-540],['#cr','#catsR',540],['#pl','#rail',-570],['#pr','#rail',570],['#il','#idr',-640],['#ir','#idr',640],['#ppl','#prj',-350],['#ppr','#prj',350]].forEach(([b,t,d])=>$(b).onclick=()=>scr(t,d));
+
+/* hero */
+const HS=[['f17','Вечер в сосновом саду','Тиковый дэйбед под перголой'],['f03','Ужин с видом на море','Обеденные группы из тика'],['f19','Городская терраса','Мягкие диваны в оттенках шалфея'],['f23','Двор, где тихо','Лаунж-кресла в сиреневых тонах']];
+let hi=0,ht;
+$('#hero').insertAdjacentHTML('afterbegin',HS.map((h,i)=>`<div class="sl ${i?'':'on'}" style="background-image:url('${IMGH[h[0]]}')"></div>`).join(''));
+$('#dots').innerHTML=HS.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
+function hs(i){hi=(i+HS.length)%HS.length;$$('.hero .sl').forEach((s,j)=>s.classList.toggle('on',j===hi));$$('#dots i').forEach((s,j)=>s.classList.toggle('on',j===hi));$('#h1').textContent=HS[hi][1];$('#hp').textContent=HS[hi][2];clearInterval(ht);ht=setInterval(()=>hs(hi+1),2000)}
+$$('#dots i').forEach((d,i)=>d.onclick=()=>hs(i));$('#hp1').onclick=()=>hs(hi-1);$('#hn1').onclick=()=>hs(hi+1);hs(0);
+
+/* categories */
+const CATS=[['lounge','Лаунж-комплекты','f05'],['lounge','Диваны','f14'],['lounge','Кресла','f15'],['dining','Обеденные группы','f12'],['swing','Подвесные кресла','f07'],['lounge','Шезлонги','f09'],['lounge','Дэйбеды','f17'],['lounge','Лаунж у бассейна','f01']];
+$('#catsR').innerHTML=`<div class="cat promo" data-c="all"><div class="im"><b>Higold</b><span>Эксклюзивный представитель в Кыргызстане</span></div><div class="t">Все коллекции</div></div>`+CATS.map(c=>`<div class="cat" data-c="${c[0]}"><div class="im"><img ${I(c[2])} loading="lazy"></div><div class="t">${c[1]}</div></div>`).join('');
+const CATMAP={'Лаунж-комплекты':'sofas','Диваны':'sofas','Кресла':'armchairs','Обеденные группы':'dining','Стулья':'dining','Подвесные кресла':'armchairs','Шезлонги':'loungers','Дэйбеды':'loungers','Лаунж у бассейна':'loungers'};
+$$('.cat').forEach(c=>c.onclick=()=>{const t=c.querySelector('.t').textContent.trim();const k=CATMAP[t];location.href='variant-1-catalog.html'+(k?'?cat='+k:'')});
+const PID=n=>{n=n.toLowerCase();return n.includes('vasca')?'vasca':n.includes('exee')?'exee':n.includes('borromeo')?'borromeo':n.includes('кокон')?'cocoon':n.includes('nofi')?'nofi':n.includes('heck')?'heck':n.includes('дэйбед')?'daybed':n.includes('visconti')?'visconti':'vasca'};
+
+/* products */
+const SWC=['#E9E4DA','#8E8B85','#3A3A3A','#B79B76','#6F7B6A'];
+const P=[
+ {n:'Vasca · угловой диван шалфейного цвета',cat:'lounge',i:'f05',tags:['stock'],badge:'в наличии',d:'Угловой диван на каркасе из тика с низким столом.',m:'Тик · Лён'},
+ {n:'Exee · трёхместный диван, фисташковый',cat:'lounge',i:'f14',tags:['new'],badge:'новинка',d:'Трёхместный диван с массивными тиковыми подлокотниками.',m:'Тик · Лён'},
+ {n:'Borromeo · лаунж-кресло, пудрово-розовое',cat:'lounge',i:'f15',tags:['new'],badge:'новинка',d:'Глубокая посадка и тёплое дерево в деталях.',m:'Тик · Лён'},
+ {n:'Подвесное кресло-кокон, лавандовое',cat:'swing',i:'f07',tags:['new','stock'],badge:'новинка',d:'Подвесное плетёное кресло для чтения и тишины.',m:'Плетение · Лён'},
+ {n:'Nofi 2.0 · обеденная группа',cat:'dining',i:'f12',tags:['stock'],badge:'в наличии',d:'Обеденный стол и стулья с серо-голубыми подушками.',m:'Тик · Лён'},
+ {n:'Heck · шезлонг, маслянисто-жёлтый',cat:'lounge',i:'f10',tags:['stock'],badge:'в наличии',d:'Шезлонг с регулируемой спинкой для отдыха у бассейна.',m:'Тик · Лён'},
+ {n:'Дэйбед для террасы, серо-голубой',cat:'lounge',i:'f18',tags:[],badge:'',d:'Дэйбед из тика под перголой для долгих вечеров.',m:'Тик · Лён'},
+ {n:'Visconti · лаунж-группа, мятная',cat:'lounge',i:'f20',tags:[],badge:'',d:'Угловой диван и стол из тика для террасы на крыше.',m:'Тик · Лён'}
+];
+let cf='all',tf='all',favs=new Set(),cart=[];
+$$('#tabs button').forEach(b=>b.onclick=()=>{tf=b.dataset.t;$$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));drawP()});
+const HEART='<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.500-7-10a4 4 0 017-2.500A4 4 0 0119 10c0 5.500-7 10-7 10z"/></svg>';
+function drawP(){const L=P.map((p,i)=>({...p,k:i})).filter(p=>(cf==='all'||p.cat===cf)&&(tf==='all'||p.tags.includes(tf)));
+ $('#rail').innerHTML=L.length?L.map(p=>`<div class="pc" data-k="${p.k}"><div class="im"><img ${I(p.i)} alt="${p.n}" loading="lazy">${p.badge?`<span class="tg">${p.badge}</span>`:''}<button class="hv ${favs.has(p.k)?'on':''}" data-f="${p.k}">${HEART}</button></div><div class="sw">${SWC.slice(0,4).map(c=>`<i style="background:${c}"></i>`).join('')}<span>+12</span></div><div class="nm">${p.n}</div><div class="pr">Цена <span>по запросу</span></div></div>`).join(''):'<p style="color:#888;padding:30px 0">В этой категории пока нет позиций — напишите нам, подберём под задачу.</p>';
+ $$('#rail .pc').forEach(c=>c.onclick=e=>{if(e.target.closest('.hv'))return;location.href='variant-1-product.html?id='+PID(P[+c.dataset.k].n)});
+ $$('#rail .hv').forEach(b=>b.onclick=()=>{const k=+b.dataset.f;favs.has(k)?favs.delete(k):favs.add(k);b.classList.toggle('on');cnt();toast(favs.has(k)?'Добавлено в избранное':'Убрано из избранного')})}
+drawP();
+function cnt(){[['#fc',favs.size],['#cc',cart.length]].forEach(([s,n])=>{$(s).textContent=n;$(s).classList.toggle('s',n>0)})}
+function qv(k){const p=P[k];let sc=0;
+ $('#qv').innerHTML=`<button class="cir x" id="qx">✕</button><div class="im"><img ${I(p.i)}></div><div class="tx"><small style="color:#888">${p.badge||'Higold'}</small><h3>${p.n}</h3><p>${p.d}</p><div style="font-size:12px;color:#888">Цвет ткани</div><div class="sws">${SWC.map((c,i)=>`<i class="${i?'':'on'}" style="background:${c}" data-s="${i}"></i>`).join('')}</div><table><tr><td>Материалы</td><td>${p.m}</td></tr><tr><td>Цена</td><td>По запросу</td></tr><tr><td>Наличие</td><td>Уточняйте в шоуруме</td></tr></table><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="pill k" data-lead="product" data-product="${PID(p.n)}" data-source="quickview">Получить расчёт</button><a class="pill k" style="background:var(--g);color:#000" href="variant-1-product.html?id=${PID(p.n)}">Открыть карточку</a><button class="pill k" id="ad" style="background:var(--g);color:#000">В запрос</button><a class="pill k" style="background:var(--g);color:#000" target="_blank" href="${WA}${enc('Здравствуйте! Интересует: '+p.n)}">Спросить в WhatsApp</a></div></div>`;
+ $('#qvo').classList.add('on');$('#qx').onclick=()=>$('#qvo').classList.remove('on');
+ $$('#qv .sws i').forEach(i=>i.onclick=()=>{sc=+i.dataset.s;$$('#qv .sws i').forEach(x=>x.classList.toggle('on',x===i))});
+ $('#ad').onclick=()=>{cart.push({k,s:sc});cnt();toast('Добавлено в запрос');$('#qvo').classList.remove('on')}}
+$$('.ov').forEach(o=>o.onclick=e=>{if(e.target===o)o.classList.remove('on')});
+const CN=['Слоновая кость','Серый','Графит','Песочный','Оливковый'];
+function drawD(){const t=cart.map(c=>`${P[c.k].n} (${CN[c.s]})`).join('; ');
+ $('#dr').innerHTML=`<h3>Ваш запрос<button class="cir" style="background:var(--g)" id="dx">✕</button></h3><div class="li">${cart.length?cart.map((c,i)=>`<div class="it"><img ${I(P[c.k].i)}><div>${P[c.k].n}<br><small>Ткань: ${CN[c.s]}</small></div><button data-r="${i}">✕</button></div>`).join(''):'<p class="em">Пока пусто. Откройте карточку и нажмите «В запрос» — мы подготовим предложение.</p>'}</div>${cart.length?`<a class="pill k" style="text-align:center;margin-top:16px" target="_blank" href="${WA}${enc('Здравствуйте! Хочу получить предложение на: '+t)}">Отправить в WhatsApp</a>`:''}`;
+ $('#dx').onclick=()=>$('#dr').classList.remove('on');$$('#dr [data-r]').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.r,1);cnt();drawD()})}
+$('#cb').onclick=()=>{drawD();$('#dr').classList.add('on')};
+$('#fb').onclick=()=>{if(!favs.size)return toast('В избранном пока пусто');toast('Избранное: '+[...favs].map(k=>P[k].n.split(' · ')[0]).join(', '))};
+
+/* ideas */
+const TONES=['#E9E4DA','#8E8B85','#3A3A3A','#B79B76','#6F7B6A'];
+const IDEAS=[
+ {l:'У бассейна',i:'f01',t:'Шезлонги с голубыми подушками у бассейна утром',c:[1,0],h:[[37,60,'Шезлонг'],[57,55,'Шезлонг']]},
+ {l:'Терраса',i:'f03',t:'Обеденная группа под перголой с видом на море',c:[4,0],h:[[40,58,'Обеденный стол'],[22,72,'Стул'],[78,60,'Стул']]},
+ {l:'Сад',i:'f17',t:'Дэйбед под перголой среди сосен на закате',c:[1,3],h:[[52,73,'Дэйбед'],[55,33,'Пергола']]},
+ {l:'Терраса',i:'f19',t:'Крыша с видом на горы: угловой диван шалфейного цвета',c:[4,1],h:[[46,66,'Угловой диван'],[72,78,'Кресло'],[52,77,'Журнальный стол']]},
+ {l:'Ресторан',i:'f21',t:'Веранда ресторана с персиковыми подушками на закате',c:[3,2],h:[[45,62,'Обеденный стол'],[30,80,'Стул'],[75,70,'Стол']]},
+ {l:'Сад',i:'f23',t:'Двор с оливой: лаунж-кресла в сиреневых тонах',c:[1,4],h:[[21,75,'Лаунж-кресло'],[46,74,'Лаунж-кресло'],[34,80,'Приставной стол']]},
+ {l:'Терраса',i:'f25',t:'Крытая веранда: угловой диван кремово-жёлтого цвета',c:[3,0],h:[[48,64,'Угловой диван'],[54,80,'Журнальный стол']]},
+ {l:'Ресторан',i:'f22',t:'Вечерняя терраса ресторана с тёплыми фонарями',c:[3,2],h:[[45,62,'Обеденный стол'],[28,82,'Стул']]}
+];
+let lf='Все',cl=-1;const LT=['Все локации',...new Set(IDEAS.map(p=>p.l))];
+$('#cols').innerHTML=TONES.map((c,i)=>`<i data-c="${i}" style="background:${c}"></i>`).join('');
+$$('#cols i').forEach(e=>e.onclick=()=>{cl=cl===+e.dataset.c?-1:+e.dataset.c;$$('#cols i').forEach(x=>x.classList.toggle('on',+x.dataset.c===cl));drawI()});
+function drawI(){$('#chips').innerHTML=LT.map(t=>`<button class="${(t===lf||(t==='Все локации'&&lf==='Все'))?'on':''}">${t}</button>`).join('');
+ $$('#chips button').forEach(b=>b.onclick=()=>{lf=b.textContent==='Все локации'?'Все':b.textContent;drawI()});
+ const L=IDEAS.filter(p=>(lf==='Все'||p.l===lf)&&(cl<0||p.c.includes(cl)));
+ $('#idr').innerHTML=L.length?L.map(p=>`<div class="ic1"><div class="im"><img ${I(p.i)} loading="lazy">${p.h.map(h=>`<div class="dot" style="left:${h[0]}%;top:${h[1]}%"><em>${h[2]}</em></div>`).join('')}</div><div class="t">${p.t}</div><div class="l"><i>→</i></div></div>`).join(''):'<p style="color:#888;padding:20px 0">Нет идей в этом оттенке — выберите другой.</p>'}
+drawI();
+const PJ=[['f21','Ресторан на террасе: столы из тика и розово-персиковые подушки'],['f22','Ужин при свете фонарей'],['f23','Отельный двор с оливой'],['f25','Веранда виллы с угловым диваном'],['f19','Терраса на крыше с видом на горы'],['f01','У бассейна: шезлонги с голубыми подушками']];
+$('#prj').innerHTML=PJ.map(p=>`<div class="pj"><div class="im"><img ${I(p[0])} loading="lazy"></div><div class="t">${p[1]}</div><div class="l">Смотреть <i>→</i></div></div>`).join('');
+$('#allp').onclick=()=>$('#prj').scrollTo({left:0,behavior:'smooth'});
+
+/* booking */
+$('#book').onclick=()=>{ if(window.AzurLead) return AzurLead.open({type:'showroom',source:'showroom-card'});const DN=['вс','пн','вт','ср','чт','пт','сб'];let d='',t='';
+ $('#bq').innerHTML=`<div class="tx"><h3>Запись в шоурум</h3><p>Ул. Исакеева 1/1 · ежедневно 9:00 — 18:00</p><div style="font-size:12px;color:#888;margin-bottom:8px">День</div><div class="chips" id="bd">${Array.from({length:5},(_,i)=>{const x=new Date();x.setDate(x.getDate()+i);return `<button>${i?DN[x.getDay()]+' ':'сегодня '}${x.getDate()}.${String(x.getMonth()+1).padStart(2,'0')}</button>`}).join('')}</div><div style="font-size:12px;color:#888;margin-bottom:8px">Время</div><div class="chips" id="bt">${['10:00','11:30','13:00','14:30','16:00','17:00'].map(x=>`<button>${x}</button>`).join('')}</div><a class="pill k" id="bgo" target="_blank">Подтвердить в WhatsApp</a></div>`;
+ const up=()=>$('#bgo').href=WA+enc(`Здравствуйте! Хочу приехать в шоурум: ${d||'—'}, ${t||'—'}.`);up();
+ [['#bd',v=>d=v],['#bt',v=>t=v]].forEach(([s,f])=>$$(s+' button').forEach(b=>b.onclick=()=>{$$(s+' button').forEach(x=>x.classList.toggle('on',x===b));f(b.textContent);up()}));
+ $('#bko').classList.add('on')};
+/* search, menu */
+$('#sb').onclick=()=>{$('#sr').classList.add('on');$('#si').focus();ds('')};$('#sx').onclick=()=>$('#sr').classList.remove('on');
+function ds(q){$('#sres').innerHTML=P.map((p,k)=>({...p,k})).filter(p=>p.n.toLowerCase().includes(q.toLowerCase())).map(p=>`<div class="pc" data-k="${p.k}"><div class="im"><img ${I(p.i)}></div><div class="nm" style="margin-top:10px">${p.n}</div></div>`).join('')||'<p style="color:#888">Ничего не найдено</p>';$$('#sres .pc').forEach(c=>c.onclick=()=>{$('#sr').classList.remove('on');qv(+c.dataset.k)})}
+$('#si').oninput=e=>ds(e.target.value);
+$('#bg').onclick=()=>$('#mn').classList.add('on');$('#mx').onclick=()=>$('#mn').classList.remove('on');$$('#mn a').forEach(a=>a.onclick=()=>$('#mn').classList.remove('on'));
+addEventListener('keydown',e=>{if(e.key==='Escape')$$('.ov,.dr,.sr,.mn').forEach(x=>x.classList.remove('on'))});
+addEventListener('scroll',()=>$('#hd').classList.toggle('fx',scrollY>594),{passive:true});
+</script>
+<form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
+</form>
+<script src="assets/data.js"></script>
+<script src="assets/lead.js"></script>
+</body>
+</html>

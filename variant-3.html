@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ru" data-v="3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>azur — садовая мебель по настроению</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@500;700&family=Unbounded:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F2EE;--ink:#0d0d0d;--mut:#9b978f;--card:#E9E6E0;--mood:#F4F2EE;--pad:32px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-size:13px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}img{display:block}ul{list-style:none}
+.cond{font-family:"Roboto Condensed",sans-serif;font-weight:700;text-transform:uppercase;line-height:1}
+.wm{font-family:Unbounded,sans-serif;font-weight:800;text-transform:lowercase;letter-spacing:-.06em;line-height:.72;white-space:nowrap}
+/* header */
+.hd{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:16px var(--pad);color:#fff;transition:.4s}
+.hd.s{background:rgba(244,242,238,.92);backdrop-filter:blur(14px);color:var(--ink);padding:12px var(--pad)}
+.hd .l{justify-self:start;font-family:Unbounded;font-weight:800;font-size:22px;letter-spacing:-.06em}
+.hd nav{display:flex;gap:30px;font-size:12px}
+.hd nav a{opacity:.85;transition:.2s}.hd nav a:hover{opacity:.5}
+.pill{display:inline-flex;gap:8px;align-items:center;padding:10px 18px;border-radius:99px;background:#fff;color:var(--ink);font-size:12px;transition:.3s}
+.hd.s .pill{background:var(--ink);color:#fff}
+.pill i{font-style:normal;background:var(--ink);color:#fff;border-radius:99px;min-width:18px;height:18px;display:grid;place-items:center;font-size:10px;padding:0 4px}
+.hd.s .pill i{background:#fff;color:var(--ink)}
+/* hero */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#222;color:#fff}
+.hero .sl{position:absolute;inset:0;background-size:cover;background-position:center 62%;opacity:0;transition:opacity .8s}
+.hero .sl.on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 22%,transparent 55%,rgba(0,0,0,.4));pointer-events:none}
+.hero .cp{position:absolute;left:var(--pad);bottom:calc(27vw*.62 + 3vw);z-index:3;max-width:720px}
+.hero h1{font-size:clamp(34px,5.4vw,86px)}
+.hero p{margin:14px 0 22px;font-size:14px;max-width:380px;opacity:.92}
+.hero .ctl{position:absolute;right:var(--pad);bottom:calc(27vw*.62 + 3vw);z-index:3;display:flex;gap:8px;align-items:center}
+.cir{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.85);color:var(--ink);display:grid;place-items:center;transition:.25s}
+.cir:hover{background:var(--ink);color:#fff}
+.hero .ct{font-size:12px;margin-right:10px}
+.hero .big{position:absolute;left:0;right:0;bottom:-.5vw;font-size:27vw;text-align:center;z-index:2;color:#F4F2EE;mix-blend-mode:normal;pointer-events:none;user-select:none}
+/* sections */
+.sec{padding:9vw var(--pad) 0}
+.h2{font-size:clamp(30px,4.4vw,70px);max-width:1200px}
+.sub{color:#5a564f;max-width:420px;margin-top:14px;font-size:13px}
+/* moods */
+.moods{background:var(--mood);transition:background .8s;margin-top:9vw;padding:7vw var(--pad) 7vw}
+.moods .top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.sw{display:flex;gap:10px;flex-wrap:wrap}
+.sw button{display:flex;align-items:center;gap:10px;padding:9px 16px 9px 10px;border-radius:99px;background:rgba(255,255,255,.7);font-size:12px;transition:.25s;border:1px solid transparent}
+.sw button i{width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.sw button:hover{background:#fff}.sw button.on{background:#fff;border-color:var(--ink)}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mc{cursor:pointer;animation:up .7s both}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.mc .im{aspect-ratio:16/9;overflow:hidden;border-radius:14px;background:var(--card);position:relative}
+.mc img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.6,.2,1)}
+.mc:hover img{transform:scale(1.06)}
+.mc .tg{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.9);padding:4px 10px;border-radius:99px;font-size:10px;display:flex;gap:6px;align-items:center}
+.mc .tg i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.mc .m{display:flex;justify-content:space-between;gap:10px;padding:12px 2px 0}
+.mc b{font-family:"Roboto Condensed";font-size:22px;text-transform:uppercase;font-weight:700;line-height:1.1}
+.mc span{color:#5a564f;font-size:12px}
+.mc .pr{white-space:nowrap;color:var(--mut)}
+/* zones */
+.zt{display:flex;gap:6px;flex-wrap:wrap;margin:28px 0 20px}
+.zt button{padding:10px 20px;border-radius:99px;border:1px solid #cfcac1;font-size:12px;transition:.25s}
+.zt button.on,.zt button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.zv{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:var(--card)}
+.zv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}
+.zv img.on{opacity:1}
+.dot{position:absolute;width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 0 0 6px rgba(255,255,255,.3);z-index:3;cursor:pointer}
+.dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.dot em{position:absolute;bottom:36px;left:50%;transform:translateX(-50%) translateY(6px);background:#fff;padding:7px 12px;border-radius:8px;font-style:normal;font-size:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.dot:hover em{opacity:1;transform:translateX(-50%)}
+.zc{position:absolute;left:20px;bottom:18px;z-index:3;background:rgba(244,242,238,.92);backdrop-filter:blur(10px);border-radius:12px;padding:14px 18px;max-width:300px}
+.zc b{font-family:"Roboto Condensed";font-size:24px;text-transform:uppercase;display:block;margin-bottom:4px}
+/* materials */
+.mat{display:grid;grid-template-columns:1fr 1.1fr;gap:var(--pad);align-items:stretch;margin-top:34px}
+.mat ul{border-top:1px solid #d5d1c9}
+.mat li{border-bottom:1px solid #d5d1c9;padding:22px 0;cursor:pointer}
+.mat li .t{display:flex;justify-content:space-between;align-items:baseline}
+.mat li h3{font-family:"Roboto Condensed";font-size:clamp(28px,3.4vw,52px);text-transform:uppercase;line-height:1;color:var(--mut);transition:color .3s}
+.mat li small{color:var(--mut)}
+.mat li.on h3,.mat li:hover h3{color:var(--ink)}
+.mat li p{max-height:0;overflow:hidden;transition:max-height .6s;max-width:420px;color:#4b4842;margin-top:0}
+.mat li.on p{max-height:120px;margin-top:12px}
+.mat .pic{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;align-self:start}
+.mat .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+.mat .pic img.on{opacity:1}
+/* projects */
+.pr-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.prj{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:28px calc(var(--pad)*-1) 0;padding:0 var(--pad)}
+.prj::-webkit-scrollbar{display:none}
+.pj{flex:0 0 min(62vw,900px);scroll-snap-align:start;position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:14px;cursor:pointer}
+.pj img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s cubic-bezier(.2,.6,.2,1)}
+.pj:hover img{transform:scale(1.05)}
+.pj span{position:absolute;left:14px;bottom:14px;background:rgba(244,242,238,.92);border-radius:99px;padding:6px 12px;font-size:11px}
+/* visit + footer */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad)}
+.visit dl{display:grid;grid-template-columns:90px 1fr;gap:8px 0;border-top:1px solid #d5d1c9;padding-top:14px;max-width:420px;margin-top:22px}
+.visit dt{color:var(--mut)}
+.pk h4{font-weight:400;color:var(--mut);font-size:11px;margin-bottom:8px}
+.pk .r{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.pk .r button{padding:9px 15px;border:1px solid #cfcac1;border-radius:99px;font-size:12px;transition:.2s}
+.pk .r button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cta{display:inline-flex;gap:10px;background:var(--ink);color:#fff;padding:14px 26px;border-radius:99px;font-size:12px;transition:.3s}
+.cta:hover{background:#444}
+footer{background:#050505;color:#f4f2ee;margin-top:10vw;padding:36px var(--pad) 0;overflow:hidden}
+footer .g{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px;font-size:12px}
+footer b{display:block;font-weight:400;color:#7d7a74}footer a{display:block}footer a:hover{opacity:.55}
+footer .wm{font-size:27vw;text-align:center;margin-top:8vw;transform:translateY(7%)}
+/* overlay */
+.ov{position:fixed;inset:0;background:rgba(10,10,10,.55);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+.ov.on{display:flex}
+.md{background:var(--bg);border-radius:18px;max-width:760px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr;position:relative}
+.md .im img{width:100%;aspect-ratio:16/9;object-fit:cover;min-height:0}
+.md .tx{padding:38px 34px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.md h3{font-size:clamp(30px,3.4vw,48px);margin:8px 0 12px}
+.md table{width:100%;border-collapse:collapse;margin:18px 0}.md td{padding:9px 0;border-top:1px solid #d5d1c9}.md td:first-child{color:var(--mut);width:110px}
+.md .x{position:absolute;right:14px;top:12px;width:34px;height:34px;border-radius:50%;background:var(--bg);z-index:2}
+.it{display:grid;grid-template-columns:64px 1fr 24px;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #d5d1c9}
+.it img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:11px 20px;border-radius:99px;z-index:120;opacity:0;pointer-events:none;transition:.4s;font-size:12px}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.fade{opacity:0;transform:translateY(24px);transition:1s cubic-bezier(.2,.6,.2,1)}.fade.in{opacity:1;transform:none}
+@media(max-width:900px){:root{--pad:16px}.hd nav{display:none}.mg{grid-template-columns:repeat(2,1fr)}.mat,.visit,.md,footer .g{grid-template-columns:1fr}.mat .pic{min-height:300px}.hero .cp{bottom:calc(27vw*.62 + 14vw)}.hero .ctl{display:none}.pj{flex-basis:86vw}.md .im img{min-height:260px}.zv{aspect-ratio:4/3}}
+
+.hd-r{display:flex;gap:8px;align-items:center}
+.pill.ld{background:transparent;color:inherit;border:1px solid currentColor}
+.hd.s .pill.ld{background:transparent;color:var(--ink);border-color:var(--ink)}
+.hero .pill.ld{color:#fff;margin-left:6px}.hero .pill.ld:hover{background:#fff;color:var(--ink)}
+.b2b{margin-top:30px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid #d5d1c9;padding-top:26px}
+.b2b h3{font-size:clamp(24px,2.6vw,40px)}.b2b p{color:#5a564f;margin-top:6px}
+.lm-block{margin:0 0 0}
+#lead{padding-left:var(--pad);padding-right:var(--pad)}
+@media(max-width:900px){.hd-r .ld{display:none}}
+
+.hd,.hd.s{display:block;width:auto;position:fixed;top:0;left:0;right:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;color:#0d0d0d;padding:14px 16px 0;z-index:60}
+.hd .cap3{width:100%;max-width:none;margin:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 26px;border-radius:99px;background:rgba(255,255,255,.66);backdrop-filter:blur(30px) saturate(1.6) brightness(1.2);-webkit-backdrop-filter:blur(30px) saturate(1.6) brightness(1.2);box-shadow:0 8px 36px rgba(0,0,0,.14);border:1px solid rgba(255,255,255,.55)}
+.hd .l{font-family:Unbounded,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.06em;text-shadow:none;color:#0d0d0d}
+.hd nav{justify-self:center;display:flex;gap:34px;font:700 15px "Roboto Condensed";text-transform:uppercase;letter-spacing:.03em}
+.hd nav a{position:relative;opacity:1;color:#0d0d0d;text-shadow:none}
+.hd nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:#0d0d0d;transform:scaleX(0);transform-origin:left;transition:.3s}.hd nav a:hover::after{transform:scaleX(1)}
+.hd .hd-r{justify-self:end;display:flex;justify-content:flex-end;gap:16px;align-items:center}
+.dots3{display:flex;gap:5px}.dots3 i{width:11px;height:11px;border-radius:50%;display:block}
+.cta3{background:#0d0d0d;color:#fff;border-radius:99px;padding:11px 22px;font-size:12px;font-weight:500;white-space:nowrap;border:0;cursor:pointer;transition:.3s}.cta3:hover{background:#444}
+@media(max-width:1000px){.hd nav,.dots3{display:none}.hd .cap3{grid-template-columns:1fr auto}}
+
+.rv{padding:8vw var(--pad) 0}
+.rv-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.rv-h h2{font:700 clamp(32px,4.4vw,70px)/1 "Roboto Condensed";text-transform:uppercase}.rv-h p{color:#5a564f;margin-top:10px}
+.rv-sc{display:flex;align-items:center;gap:14px;background:#fff;border-radius:99px;padding:11px 22px;font-size:12px;box-shadow:0 2px 24px rgba(0,0,0,.06);transition:.25s}.rv-sc:hover{box-shadow:0 6px 30px rgba(0,0,0,.12)}
+.rv-sc b{font:700 24px "Roboto Condensed"}.rv-st{color:#e0a800;letter-spacing:2px}.rv-sc em{font-style:normal;color:#5a564f}.rv-sc i{font-style:normal;font-weight:500}
+.rv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rv-c{background:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:200px;box-shadow:0 2px 24px rgba(0,0,0,.05)}
+.rv-t{font:700 clamp(20px,1.8vw,26px)/1.15 "Roboto Condensed";text-transform:uppercase}
+.rv-f{display:flex;gap:12px;align-items:center;font-size:12px}.rv-a{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#9DB5A3,#B9A6D9);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600}.rv-f b{display:block;font-weight:500}.rv-f small{color:#9b978f}
+@media(max-width:900px){.rv-g{grid-template-columns:1fr}}
+
+.rv2{padding:8vw var(--pad) 0}
+.rv2-in{display:grid;grid-template-columns:320px 1fr;gap:14px}
+.rv2-s{background:linear-gradient(160deg,#9DB5A3 0%,#B9A6D9 55%,#E6B7A6 100%);color:#fff;border-radius:28px;padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;min-height:440px}
+.rv2-s small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.rv2-n{font:700 clamp(100px,11vw,170px)/.85 "Roboto Condensed";letter-spacing:-.02em}
+.rv2-st{letter-spacing:4px;font-size:18px;margin-top:-18px}.rv2-s p{font-size:13px;margin-top:-18px;opacity:.95}
+.rv2-s a{align-self:flex-start;background:#fff;color:#0d0d0d;border-radius:99px;padding:12px 22px;font-size:12px;font-weight:500;transition:.25s}.rv2-s a:hover{background:#0d0d0d;color:#fff}
+.rv2-m{background:#fff;border-radius:28px;padding:34px 38px;box-shadow:0 2px 28px rgba(0,0,0,.05);display:flex;flex-direction:column}
+.rv2-m h2{font:700 clamp(30px,3.6vw,56px)/1 "Roboto Condensed";text-transform:uppercase;margin-bottom:22px}
+.rv2-big{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:24px;transition:opacity .22s,transform .22s}.rv2-big.sw{opacity:0;transform:translateY(8px)}
+.rv2-q{font:700 110px/.5 "Roboto Condensed";height:46px;background:linear-gradient(135deg,#9DB5A3,#B9A6D9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rv2-big p{font:700 clamp(24px,2.8vw,42px)/1.1 "Roboto Condensed";text-transform:uppercase;max-width:860px}
+.rv2-big footer{display:flex;gap:14px;align-items:center}.rv2-big footer i{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#9DB5A3,#B9A6D9);color:#fff;display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:600}
+.rv2-big b{display:block;font-size:14px;font-weight:500}.rv2-big small{color:#9b978f;font-size:12px}
+.rv2-r{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.rv2-c{background:#F4F2EE;border:1px solid transparent;border-radius:18px;padding:16px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:112px;cursor:pointer;font:inherit;color:inherit;transition:.25s}
+.rv2-c span{font-size:12.5px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.rv2-c em{font-style:normal;font-size:11px;color:#9b978f}
+.rv2-c:hover,.rv2-c.on{border-color:#0d0d0d;background:#fff}
+@media(max-width:1000px){.rv2-in{grid-template-columns:1fr}.rv2-s{min-height:0}.rv2-r{grid-template-columns:repeat(2,1fr)}.rv2-m{padding:24px 20px}}
+
+.rv3{padding:9vw 0 0}
+.rv3-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.rv3-sc{display:flex;align-items:center;gap:12px;font-size:13px}.rv3-sc b{font-size:24px}.rv3-sc span{color:#f0b429;letter-spacing:2px}.rv3-sc em{font-style:normal;opacity:.65}
+.rv3-sl{transition:opacity .18s,transform .18s}.rv3-sl.o{opacity:0;transform:translateY(8px)}
+.rv3-h{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
+.rv3-av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:22px}
+.rv3-m small{display:block;font-size:12px;letter-spacing:.08em;opacity:.55;margin-bottom:6px}.rv3-m small i{font-style:normal;margin:0 8px}
+.rv3-m b{font-weight:500;font-size:30px;line-height:1.1}
+.rv3-st{color:#f0b429;font-size:30px;letter-spacing:4px;white-space:nowrap}
+.rv3-b{display:grid;grid-template-columns:76px 1fr;gap:22px;margin-top:30px}
+.rv3-q{font:700 90px/.9 Georgia,serif;opacity:.2}
+.rv3-b p{font-size:clamp(18px,1.7vw,24px);line-height:1.65;max-width:980px;opacity:.85}
+.rv3-btn{display:inline-block;margin:26px 0 0 98px;border:1px solid currentColor;padding:15px 30px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.7;transition:.25s}.rv3-btn:hover{opacity:1;background:#111;color:#fff;border-color:#111}
+.rv3-nav{display:flex;justify-content:space-between;align-items:center;margin-top:34px;padding-top:20px;border-top:1px solid rgba(0,0,0,.12)}
+.rv3-dots{display:flex;gap:8px}.rv3-dots button{width:9px;height:9px;border-radius:50%;background:rgba(0,0,0,.2);transition:.25s;border:0;cursor:pointer;padding:0}.rv3-dots button.on{background:#111;width:26px;border-radius:99px}
+.rv3-ar{display:flex;align-items:center;gap:12px;font-size:12px}.rv3-ar button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(0,0,0,.25);background:none;cursor:pointer;font-size:15px;transition:.25s}.rv3-ar button:hover{background:#111;color:#fff;border-color:#111}
+.rv3-hint{font-size:11px;opacity:.5;margin-top:12px;text-align:center}
+@media(max-width:800px){.rv3-h{grid-template-columns:auto 1fr}.rv3-st{grid-column:1/3;font-size:22px}.rv3-m b{font-size:22px}.rv3-av{width:56px;height:56px;font-size:17px}.rv3-b{grid-template-columns:1fr}.rv3-q{display:none}.rv3-btn{margin-left:0}}
+.rv3{padding:8vw var(--pad) 0}.rv3-top h2{font:700 clamp(32px,4.4vw,70px)/1 "Roboto Condensed";text-transform:uppercase}.rv3-box{background:#fff;border-radius:28px;padding:44px 52px 28px;box-shadow:0 2px 28px rgba(0,0,0,.05)}.rv3-av{background:linear-gradient(135deg,#9DB5A3,#B9A6D9);color:#fff}.rv3-m b{font-family:"Roboto Condensed";text-transform:uppercase;font-weight:700;font-size:36px}.rv3-btn{border-radius:99px}
+
+.rv4{--rh:98px;padding:9vw 0 0}
+.rv4-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.rv4-sc{display:flex;align-items:center;gap:12px;font-size:13px}.rv4-sc b{font-size:24px}.rv4-sc span{color:#f0b429;letter-spacing:2px}.rv4-sc em{font-style:normal;opacity:.6}
+.rv4-box{position:relative}
+.rv4-l{height:calc(var(--rh)*4);overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.25) transparent}
+.rv4-l::-webkit-scrollbar{width:5px}.rv4-l::-webkit-scrollbar-thumb{background:rgba(0,0,0,.25);border-radius:9px}
+.rv4-r{height:var(--rh);scroll-snap-align:start;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:0 22px;border-bottom:1px solid rgba(0,0,0,.09);color:inherit;text-decoration:none;transition:background .2s}
+.rv4-r:hover{background:rgba(0,0,0,.035)}
+.rv4-av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600}
+.rv4-n{display:flex;gap:10px;align-items:baseline;margin-bottom:3px}.rv4-n b{font-size:15px;font-weight:600}.rv4-n small{font-size:11px;opacity:.5}
+.rv4-t p{font-size:14px;line-height:1.45;opacity:.82;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:880px}
+.rv4-st{color:#f0b429;font-size:15px;letter-spacing:3px;white-space:nowrap}
+.rv4-fade{position:absolute;left:0;right:0;bottom:0;height:34px;pointer-events:none}
+.rv4-h{font-size:11px;opacity:.55;margin-top:12px;text-align:center}.rv4-h a{text-decoration:underline}
+@media(max-width:800px){.rv4{--rh:116px}.rv4-r{grid-template-columns:auto 1fr;padding:0 12px}.rv4-st{display:none}}
+.rv4{padding:8vw var(--pad) 0}.rv4-top h2{font:700 clamp(32px,4.4vw,70px)/1 "Roboto Condensed";text-transform:uppercase}.rv4-box{background:#fff;border-radius:24px;overflow:hidden;padding:6px 0;box-shadow:0 2px 28px rgba(0,0,0,.05)}.rv4-av{background:linear-gradient(135deg,#9DB5A3,#B9A6D9);color:#fff}.rv4-n b{font-family:"Roboto Condensed";text-transform:uppercase;font-size:18px}.rv4-fade{background:linear-gradient(transparent,#fff)}
+</style>
+<link rel="stylesheet" href="assets/lead.css">
+</head>
+<body>
+
+<header class="hd" id="hd"><div class="cap3"><a class="l" href="variant-3.html">azur</a>
+  <nav><a href="variant-3-catalog.html">Коллекции</a><a href="#zones">Зоны</a><a href="#mat">Материалы</a><a href="#proj">Проекты</a><a href="#visit">Шоурум</a></nav>
+  <div class="hd-r"><span class="socl"><a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".8" fill="currentColor"/></svg></a><a href="https://wa.me/996553387878" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l4.9-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1112 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.500-.7-2.400-1.300-3.400-2.900-.3-.4.300-.4.800-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.7.700-1 1.500-1 2.300.1 1 .5 2 1.200 2.800 1.300 1.700 2.900 2.900 4.900 3.600 1.800.6 2.500.5 3.300.4.600-.1 1.500-.6 1.700-1.300.2-.6.2-1.100.1-1.200l-.5-.2z"/></svg></a></span><button class="cta3" data-lead="general" data-source="header">Оставить заявку</button></div></div></header>
+
+<section class="hero" id="top">
+  <div class="cp"><h1 class="cond" id="h1"></h1><p id="hp"></p><a class="pill" href="variant-3-catalog.html">Смотреть коллекции →</a> <button class="pill ld ghost" data-lead="general" data-source="hero">Оставить заявку</button></div>
+  <div class="ctl"><span class="ct" id="ct"></span><button class="cir" id="pv">←</button><button class="cir" id="nx">→</button></div>
+  <div class="big wm">azur</div>
+</section>
+
+<section class="moods" id="moods">
+  <div class="top"><div><h2 class="h2 cond">Выберите настроение</h2><p class="sub">Тик, лён и мягкие пастельные оттенки. Нажмите на цвет — покажем мебель и террасы в этой гамме.</p></div><div class="sw" id="sw"></div></div>
+  <div class="mg" id="mg"></div>
+</section>
+
+<section class="sec" id="zones">
+  <h2 class="h2 cond fade">Три способа<br>прожить террасу</h2>
+  <div class="zt" id="zt"></div>
+  <div class="zv" id="zv"></div>
+</section>
+
+<section class="sec" id="mat">
+  <h2 class="h2 cond fade">Материалы, которые<br>остаются красивыми</h2>
+  <div class="mat"><ul id="ml"></ul><div class="pic" id="mp"></div></div>
+</section>
+
+<section class="sec" id="proj">
+  <div class="pr-h"><h2 class="h2 cond fade">Проекты</h2><div style="display:flex;gap:8px"><button class="cir" id="pl" style="background:#fff;border:1px solid #d5d1c9">←</button><button class="cir" id="pr" style="background:#fff;border:1px solid #d5d1c9">→</button></div></div>
+  <div class="prj" id="prj"></div>
+  <div class="b2b fade"><div><h3 class="cond">Проект для ресторана или отеля?</h3><p>Опишите объект, и мы рассчитаем комплект мебели под вашу террасу.</p></div><button class="cta" data-lead="b2b" data-source="projects">Рассчитать проект →</button></div>
+</section>
+
+<section class="sec" id="visit">
+  <div class="visit">
+    <div class="fade"><h2 class="h2 cond">Приезжайте<br>в шоурум</h2><p class="sub">Потрогайте тик, оцените ткани и подберите композицию под вашу террасу вместе с нами.</p>
+      <dl><dt>Адрес</dt><dd>Ул. Исакеева 1/1, Бишкек</dd><dt>Часы</dt><dd>Ежедневно, 9:00 — 18:00</dd><dt>WhatsApp</dt><dd>+996 553 387 878</dd><dt>Бренд</dt><dd>Эксклюзивный представитель Higold</dd></dl></div>
+    <div class="pk fade"><h4>День</h4><div class="r" id="dd"></div><h4>Время</h4><div class="r" id="tt"></div><a class="cta" id="bgo" target="_blank">Записаться в WhatsApp →</a> <button class="cta" data-lead="showroom" data-source="visit" style="background:#fff;color:var(--ink);border:1px solid #cfcac1;margin-left:6px">Через форму</button><p id="sel" style="margin-top:12px"></p></div>
+  </div>
+</section>
+
+<section class="rv4" id="reviews"><div class="rv4-top"><h2>Отзывы клиентов</h2><a class="rv4-sc" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><b>5,0</b><span>★★★★★</span><em>18 оценок в 2ГИС</em></a></div>
+<div class="rv4-box"><div class="rv4-l"><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">A</span><div class="rv4-t"><div class="rv4-n"><b>Adele</b><small>Отзыв подтверждён</small></div><p>Купила Боррамео, лучший диванный набор, который у меня был. Качество 100% соответствует цене. Отлично вписалась в мою террасу.</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">КЗ</span><div class="rv4-t"><div class="rv4-n"><b>Каниет Замирбекович</b><small>Частый гость</small></div><p>Шикарное качество мебели и шикарное обслуживание</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">KM</span><div class="rv4-t"><div class="rv4-n"><b>Kamila Massanova</b><small>Отзыв подтверждён</small></div><p>Отличная мебель и очень профессиональный персонал ❤️</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">АК</span><div class="rv4-t"><div class="rv4-n"><b>Айжамал Киндербаева</b><small>Отзыв в 2ГИС</small></div><p>Отличная мебель!</p></div><span class="rv4-st">★★★★★</span></a><a class="rv4-r" href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener"><span class="rv4-av">АК</span><div class="rv4-t"><div class="rv4-n"><b>А. К.</b><small>Отзыв в 2ГИС</small></div><p>Шикарная мебель шикарного качества 😍🔥🔥🔥</p></div><span class="rv4-st">★★★★★</span></a></div><div class="rv4-fade"></div></div>
+<p class="rv4-h">Листайте колесом мыши прямо в блоке · <a href="https://2gis.kg/bishkek/firm/70000001087686375/tab/reviews" target="_blank" rel="noopener">Все отзывы в 2ГИС →</a></p></section>
+<section class="sec" id="lead"><div class="lm-block"><div><h2>Подберём мебель<br>под вашу террасу</h2><p>Оставьте имя и телефон. Расскажем про коллекции, цвета тканей и стоимость.</p></div><div data-lead-inline="general" data-source="home-block"></div></div></section>
+
+<footer>
+  <div class="g"><div>Azur — премиальная мебель для садов и террас. Эксклюзивный представитель Higold в Кыргызстане.</div>
+    <div><b>Меню</b><a href="variant-3-catalog.html">Коллекции</a><a href="#zones">Зоны</a><a href="#mat">Материалы</a></div>
+    <div><b>Связь</b><a href="#" data-lead="general" data-source="footer">Оставить заявку</a><a href="https://wa.me/996553387878" target="_blank">WhatsApp</a><a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank">Instagram</a></div>
+    <div><b>Шоурум</b>Ул. Исакеева 1/1<br>9:00 — 18:00</div></div>
+  <div class="wm">azur</div>
+</footer>
+
+<div class="ov" id="ov"><div class="md" id="md"></div></div>
+<div class="toast" id="toast"></div>
+
+<span id="fab" hidden><b id="fc">0</b></span>
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const WA='https://wa.me/996553387878?text=',enc=encodeURIComponent;
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2000)};
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1});
+$$('.fade').forEach(e=>io.observe(e));
+addEventListener('scroll',()=>$('#hd').classList.toggle('s',scrollY>innerHeight*.7),{passive:true});
+/* hero */
+const HS=[['f17','Вечер в сосновом саду','Тиковый дэйбед под перголой'],['f03','Ужин с видом на море','Обеденные группы из тика'],['f19','Город у ваших ног','Диваны шалфейного цвета на крыше'],['f23','Двор, где тихо','Лаунж-кресла в сиреневых тонах']];
+let hi=0,ht;
+$('#top').insertAdjacentHTML('afterbegin',HS.map((h,i)=>`<div class="sl ${i?'':'on'}" style="background-image:url('img/${h[0]}_h.jpg')"></div>`).join(''));
+function hs(i){hi=(i+HS.length)%HS.length;$$('.hero .sl').forEach((s,j)=>s.classList.toggle('on',j===hi));$('#h1').innerHTML=HS[hi][1].replace(/ /,' ').replace(/(.{14,}?) /,'$1<br>');$('#hp').textContent=HS[hi][2];$('#ct').textContent='0'+(hi+1)+' / 0'+HS.length;clearInterval(ht);ht=setInterval(()=>hs(hi+1),2000)}
+$('#pv').onclick=()=>hs(hi-1);$('#nx').onclick=()=>hs(hi+1);hs(0);
+/* moods */
+const M=[['all','Все','#F4F2EE','#cfcac1'],['sage','Шалфей','#F4F2EE','#9DB5A3'],['blush','Пудра','#F4F2EE','#E6B7A6'],['lav','Лаванда','#F4F2EE','#B9A6D9'],['butter','Масло','#F4F2EE','#EBD58A'],['sky','Небо','#F4F2EE','#A9BFD3']];
+const P=[
+ {n:'Vasca',v:'Угловой диван',m:'sage',i:'f05',pos:'50% 55%',d:'Угловой диван на тиковом каркасе с низким столом, подушки шалфейного цвета.',mat:'Тик · Лён'},
+ {n:'Exee',v:'Трёхместный диван',m:'sage',i:'f14',pos:'45% 55%',d:'Трёхместный диван с массивными тиковыми подлокотниками.',mat:'Тик · Лён'},
+ {n:'Visconti',v:'Лаунж-группа',m:'sage',i:'f20',pos:'40% 55%',d:'Угловой диван и стол из тика для террасы на крыше.',mat:'Тик · Лён'},
+ {n:'Borromeo',v:'Лаунж-кресло',m:'blush',i:'f15',pos:'68% 50%',d:'Глубокая посадка и тёплое дерево в деталях.',mat:'Тик · Лён'},
+ {n:'Terrace',v:'Столы и стулья',m:'blush',i:'f21',pos:'45% 55%',d:'Обеденные столы и стулья с розово-персиковыми подушками для ресторана или отеля.',mat:'Тик · Лён'},
+ {n:'Cocoon',v:'Подвесное кресло',m:'lav',i:'f07',pos:'36% 50%',d:'Подвесное плетёное кресло для чтения и тишины.',mat:'Плетение · Лён'},
+ {n:'Courtyard',v:'Лаунж-кресла',m:'lav',i:'f23',pos:'30% 60%',d:'Два лаунж-кресла и приставной стол для двора.',mat:'Тик · Лён'},
+ {n:'Heck',v:'Шезлонг',m:'butter',i:'f10',pos:'38% 55%',d:'Шезлонг с регулируемой спинкой для отдыха у бассейна.',mat:'Тик · Лён'},
+ {n:'Heck II',v:'Шезлонг на раме',m:'butter',i:'f09',pos:'50% 55%',d:'Шезлонг на тиковой раме с мягким матрасом.',mat:'Тик · Лён'},
+ {n:'Veranda',v:'Угловой диван',m:'butter',i:'f25',pos:'50% 60%',d:'Угловой диван кремово-жёлтого цвета для крытой веранды.',mat:'Тик · Лён'},
+ {n:'Nofi 2.0',v:'Обеденная группа',m:'sky',i:'f12',pos:'50% 55%',d:'Обеденный стол и стулья с серо-голубыми подушками.',mat:'Тик · Лён'},
+ {n:'Daybed',v:'Дэйбед',m:'sky',i:'f18',pos:'50% 60%',d:'Дэйбед из тика под перголой для долгих вечеров.',mat:'Тик · Лён'},
+ {n:'Pool',v:'Шезлонги',m:'sky',i:'f01',pos:'35% 60%',d:'Шезлонги с голубыми подушками у бассейна.',mat:'Тик · Лён'}
+];
+const PID=n=>{n=n.toLowerCase();return n.includes('vasca')?'vasca':n.includes('exee')?'exee':n.includes('borromeo')?'borromeo':n.includes('cocoon')?'cocoon':n.includes('nofi')?'nofi':n.includes('heck ii')?'heck2':n.includes('heck')?'heck':n.includes('daybed')?'daybed':n.includes('visconti')?'visconti':'vasca'};
+let mood='all',cart=[];
+$('#sw').innerHTML=M.map(m=>`<button data-k="${m[0]}" class="${m[0]==='all'?'on':''}" style="--c:${m[3]}"><i></i>${m[1]}</button>`).join('');
+$$('#sw button').forEach(b=>b.onclick=()=>{mood=b.dataset.k;$$('#sw button').forEach(x=>x.classList.toggle('on',x===b));const m=M.find(x=>x[0]===mood);$('#moods').style.setProperty('--mood',m[2]);drawM()});
+function drawM(){const L=P.map((p,k)=>({...p,k})).filter(p=>mood==='all'||p.m===mood);
+ $('#mg').innerHTML=L.map((p,j)=>{const m=M.find(x=>x[0]===p.m);return `<div class="mc" data-k="${p.k}" style="animation-delay:${j*60}ms;--c:${m[3]}"><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="tg"><i></i>${m[1]}</span></div><div class="m"><div><b>${p.n}</b><br><span>${p.v}</span></div><span class="pr">по запросу</span></div></div>`}).join('');
+ $$('#mg .mc').forEach(c=>c.onclick=()=>{location.href='variant-3-product.html?id='+PID(P[+c.dataset.k].n)});
+}
+drawM();
+function openP(k){const p=P[k],m=M.find(x=>x[0]===p.m);
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt=""></div><div class="tx"><div><small style="color:var(--mut)">${m[1]}</small><h3 class="cond">${p.n}</h3><p>${p.d}</p><table><tr><td>Вариант</td><td>${p.v}</td></tr><tr><td>Материалы</td><td>${p.mat}</td></tr><tr><td>Цена</td><td>По запросу</td></tr></table></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="cta" data-lead="product" data-product="${p.id}" data-source="modal">Получить расчёт</button><a class="cta" style="background:#fff;color:var(--ink);border:1px solid #cfcac1" href="variant-3-product.html?id=${p.id}">Открыть карточку →</a><button class="cta" id="ad" style="background:#fff;color:var(--ink);border:1px solid #cfcac1">В запрос</button><a class="cta" style="background:#fff;color:var(--ink);border:1px solid #cfcac1" target="_blank" href="${WA}${enc('Здравствуйте! Интересует: '+p.n+' — '+p.v)}">Спросить в WhatsApp</a></div></div>`;
+ $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
+ $('#ad').onclick=()=>{cart.push(k);$('#fc').textContent=cart.length;toast('Добавлено в запрос');$('#ov').classList.remove('on')};
+}
+$('#ov').onclick=e=>{if(e.target.id==='ov')$('#ov').classList.remove('on')};
+addEventListener('keydown',e=>e.key==='Escape'&&$('#ov').classList.remove('on'));
+$('#fab').onclick=()=>{
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/f19.jpg" alt=""></div><div class="tx"><div><h3 class="cond">Ваш запрос</h3>${cart.length?cart.map((k,i)=>`<div class="it"><img src="img/${P[k].i}.jpg" style="object-position:${P[k].pos}"><div>${P[k].n}<br><span style="color:var(--mut)">${P[k].v}</span></div><button data-r="${i}">✕</button></div>`).join(''):'<p>Пока пусто. Откройте карточку и нажмите «Добавить в запрос» — мы подготовим предложение.</p>'}</div>${cart.length?`<a class="cta" target="_blank" href="${WA}${enc('Здравствуйте! Хочу получить предложение на: '+cart.map(k=>P[k].n+' ('+P[k].v+')').join('; '))}">Отправить в WhatsApp →</a>`:''}</div>`;
+ $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
+ $$('#md [data-r]').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.r,1);$('#fc').textContent=cart.length;$('#fab').click()});
+};
+/* zones */
+const Z=[
+ {t:'Лаунж',i:'f19',c:'Лаунж',d:'Угловые диваны, кресла и низкие столы для вечеров вдвоём и с гостями.',h:[[40,66,'Угловой диван'],[66,76,'Кресло'],[48,78,'Журнальный стол']]},
+ {t:'Обеды',i:'f03',c:'Обеды',d:'Обеденные столы из тика и стулья с мягкими подушками для долгих ужинов.',h:[[42,86,'Обеденный стол'],[25,92,'Стул'],[69,88,'Стул']]},
+ {t:'Отдых',i:'f17',c:'Отдых',d:'Дэйбеды, шезлонги и подвесные кресла для тишины, чтения и сна на воздухе.',h:[[52,72,'Тиковый дэйбед'],[26,80,'Фонарь']]}
+];
+let zi=0;
+$('#zt').innerHTML=Z.map((z,i)=>`<button class="${i?'':'on'}">${z.t}</button>`).join('');
+$('#zv').innerHTML=Z.map((z,i)=>`<img src="img/${z.i}_m.jpg" class="${i?'':'on'}" alt="">`).join('')+'<div id="zd"></div><div class="zc"><b id="zb"></b><span id="zs"></span></div>';
+function drawZ(){$$('#zv img').forEach((m,i)=>m.classList.toggle('on',i===zi));$$('#zt button').forEach((b,i)=>b.classList.toggle('on',i===zi));$('#zd').innerHTML=Z[zi].h.map(h=>`<div class="dot" style="left:${h[0]}%;top:${h[1]}%"><em>${h[2]}</em></div>`).join('');$('#zb').textContent=Z[zi].c;$('#zs').textContent=Z[zi].d}
+$$('#zt button').forEach((b,i)=>b.onclick=()=>{zi=i;drawZ()});drawZ();
+/* materials */
+const MT=[['Тик','01','Массив с природными маслами. Устойчив к влаге, со временем приобретает серебристую патину.','f15'],['Алюминий','02','Лёгкий каркас с порошковым покрытием. Не ржавеет и спокойно переносит жару и мороз.','f12'],['Плетение','03','Технологичное волокно с мягкой фактурой. Не выцветает и держит форму.','f07'],['Ткани','04','Уличные ткани, которые быстро сохнут, не выгорают на солнце и приятны на ощупь.','f19']];
+let mi=0;
+$('#ml').innerHTML=MT.map((m,i)=>`<li class="${i?'':'on'}"><div class="t"><h3>${m[0]}</h3><small>${m[1]}</small></div><p>${m[2]}</p></li>`).join('');
+$('#mp').innerHTML=MT.map((m,i)=>`<img src="img/${m[3]}.jpg" class="${i?'':'on'}" style="object-position:${i===0?'68% 50%':i===2?'36% 50%':'50% 55%'}" alt="">`).join('');
+$$('#ml li').forEach((li,i)=>li.onmouseenter=li.onclick=()=>{$$('#ml li').forEach((x,j)=>x.classList.toggle('on',j===i));$$('#mp img').forEach((x,j)=>x.classList.toggle('on',j===i))});
+/* projects */
+const PJ=[['f21','Ресторан на террасе'],['f22','Ужин при свете фонарей'],['f25','Веранда виллы'],['f23','Отельный двор'],['f01','У бассейна'],['f03','Терраса с видом на море']];
+$('#prj').innerHTML=PJ.map(p=>`<div class="pj"><img src="img/${p[0]}_m.jpg" alt="" loading="lazy"><span>${p[1]}</span></div>`).join('');
+$('#pl').onclick=()=>$('#prj').scrollBy({left:-720,behavior:'smooth'});$('#pr').onclick=()=>$('#prj').scrollBy({left:720,behavior:'smooth'});
+/* visit */
+const DN=['вс','пн','вт','ср','чт','пт','сб'];let d='',t='';
+$('#dd').innerHTML=Array.from({length:6},(_,i)=>{const x=new Date();x.setDate(x.getDate()+i);return `<button>${i?DN[x.getDay()]+' ':'сегодня '}${x.getDate()}.${String(x.getMonth()+1).padStart(2,'0')}</button>`}).join('');
+$('#tt').innerHTML=['10:00','11:30','13:00','14:30','16:00','17:00'].map(x=>`<button>${x}</button>`).join('');
+function up(){$('#sel').textContent=d&&t?`Выбрано: ${d}, ${t}`:'';$('#bgo').href=WA+enc(`Здравствуйте! Хочу приехать в шоурум: ${d||'—'}, ${t||'—'}.`)}up();
+[['#dd',v=>d=v],['#tt',v=>t=v]].forEach(([s,f])=>$$(s+' button').forEach(b=>b.onclick=()=>{$$(s+' button').forEach(x=>x.classList.toggle('on',x===b));f(b.textContent);up()}));
+</script>
+<form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
+</form>
+<script src="assets/data.js"></script>
+<script src="assets/lead.js"></script>
+</body>
+</html>
