@@ -6,7 +6,7 @@
 <title>Каталог — azur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@500;700&family=Unbounded:wght@800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 <style>
 :root{--bg:#F4F2EE;--ink:#0d0d0d;--mut:#9b978f;--card:#E9E6E0;--mood:#F4F2EE;--pad:32px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -285,8 +285,8 @@ body.subpg{padding-top:96px}
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 <script>
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -311,7 +311,7 @@ function draw(){
   $('#bci').innerHTML=C?'<i>/</i>'+C.n:'';
   document.title=(C?C.n+' · ':'Каталог · ')+'azur';
   $('#cnt').textContent=plural(L.length);
-  $('#grid').innerHTML=L.map((p,j)=>{const m=AZ.mood(p.m);return `<a class="mc3" href="${AZ.link.product(p.id)}" style="animation-delay:${j*50}ms;--c:${m.c}"><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="tg"><i></i>${m.n}</span><button class="qa" data-lead="product" data-product="${p.id}" data-source="catalog-card">Получить расчёт</button></div><div class="m"><div><b>${p.n}</b><br><span class="v">${p.v}</span></div><span class="pr">по запросу</span></div></a>`}).join('');
+  $('#grid').innerHTML=L.map((p,j)=>{const m=AZ.mood(p.m);return `<a class="mc3" href="${AZ.link.product(p.id)}" style="animation-delay:${j*50}ms;--c:${m.c}"><div class="im"><img src="${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="tg"><i></i>${m.n}</span><button class="qa" data-lead="product" data-product="${p.id}" data-source="catalog-card">Получить расчёт</button></div><div class="m"><div><b>${p.n}</b><br><span class="v">${p.v}</span></div><span class="pr">по запросу</span></div></a>`}).join('');
   $('#empty').style.display=L.length?'none':'block';
   $$('#grid .qa').forEach(b=>b.addEventListener('click',e=>e.stopPropagation()));
 }

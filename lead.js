@@ -100,10 +100,10 @@
     }
     box.innerHTML = `
       <button class="lm-x" type="button" aria-label="Закрыть">✕</button>
-      <div class="lm-side"><img src="img/${img}.jpg" alt=""><div class="lm-next"><b>Что будет дальше</b><ol>${NEXT.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>
+      <div class="lm-side"><img src="${img}.jpg" alt=""><div class="lm-next"><b>Что будет дальше</b><ol>${NEXT.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>
       <div class="lm-body" id="lmBody">
         <h3>${T.title}</h3><p class="lm-sub">${T.sub}</p>
-        ${prod?`<div class="lm-prod"><img src="img/${prod.i}.jpg" style="object-position:${prod.pos}" alt=""><div><b>${esc(prod.n)}</b><span>${esc(prod.v)} · ${esc(prod.mat)}</span></div></div>`:''}
+        ${prod?`<div class="lm-prod"><img src="${prod.i}.jpg" style="object-position:${prod.pos}" alt=""><div><b>${esc(prod.n)}</b><span>${esc(prod.v)} · ${esc(prod.mat)}</span></div></div>`:''}
         <form class="lm-f" id="lmForm" novalidate>
           <div class="lm-row">
             <div class="lm-fld" data-f="name"><label>Ваше имя</label><input name="name" autocomplete="name" placeholder="Как к вам обращаться"><div class="lm-err">Напишите имя</div></div>

@@ -248,7 +248,7 @@ footer .cp{border-top:1px solid #333;margin-top:40px;padding-top:22px;display:fl
 @media(max-width:800px){.rv4{--rh:116px}.rv4-r{grid-template-columns:auto 1fr;padding:0 12px}.rv4-st{display:none}}
 .rv4{padding-top:70px}.rv4-top h2{font-size:26px;font-weight:600}.rv4-box{background:#F7F7F8;border-radius:20px;overflow:hidden;padding:6px 0}.rv4-av{background:#212121;color:#fff}.rv4-fade{background:linear-gradient(transparent,#F7F7F8)}
 </style>
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 </head>
 <body>
 
@@ -337,7 +337,7 @@ footer .cp{border-top:1px solid #333;margin-top:40px;padding-top:22px;display:fl
 
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const IMG={f01:'img/f01.jpg',f03:'img/f03.jpg',f05:'img/f05.jpg',f07:'img/f07.jpg',f09:'img/f09.jpg',f10:'img/f10.jpg',f12:'img/f12.jpg',f14:'img/f14.jpg',f15:'img/f15.jpg',f17:'img/f17.jpg',f18:'img/f18.jpg',f19:'img/f19.jpg',f20:'img/f20.jpg',f21:'img/f21.jpg',f22:'img/f22.jpg',f23:'img/f23.jpg',f25:'img/f25.jpg',f26:'img/f26.jpg'};const IMGH={f01:'img/f01_h.jpg',f03:'img/f03_h.jpg',f05:'img/f05_h.jpg',f07:'img/f07_h.jpg',f09:'img/f09_h.jpg',f10:'img/f10_h.jpg',f12:'img/f12_h.jpg',f14:'img/f14_h.jpg',f15:'img/f15_h.jpg',f17:'img/f17_h.jpg',f18:'img/f18_h.jpg',f19:'img/f19_h.jpg',f20:'img/f20_h.jpg',f21:'img/f21_h.jpg',f22:'img/f22_h.jpg',f23:'img/f23_h.jpg',f25:'img/f25_h.jpg',f26:'img/f26_h.jpg'};const POS={"f15": "68% 50%", "f07": "36% 50%", "f10": "40% 50%", "f05": "50% 55%", "f14": "50% 55%"};
+const IMG={f01:'f01.jpg',f03:'f03.jpg',f05:'f05.jpg',f07:'f07.jpg',f09:'f09.jpg',f10:'f10.jpg',f12:'f12.jpg',f14:'f14.jpg',f15:'f15.jpg',f17:'f17.jpg',f18:'f18.jpg',f19:'f19.jpg',f20:'f20.jpg',f21:'f21.jpg',f22:'f22.jpg',f23:'f23.jpg',f25:'f25.jpg',f26:'f26.jpg'};const IMGH={f01:'f01_h.jpg',f03:'f03_h.jpg',f05:'f05_h.jpg',f07:'f07_h.jpg',f09:'f09_h.jpg',f10:'f10_h.jpg',f12:'f12_h.jpg',f14:'f14_h.jpg',f15:'f15_h.jpg',f17:'f17_h.jpg',f18:'f18_h.jpg',f19:'f19_h.jpg',f20:'f20_h.jpg',f21:'f21_h.jpg',f22:'f22_h.jpg',f23:'f23_h.jpg',f25:'f25_h.jpg',f26:'f26_h.jpg'};const POS={"f15": "68% 50%", "f07": "36% 50%", "f10": "40% 50%", "f05": "50% 55%", "f14": "50% 55%"};
 const I=k=>`src="${IMG[k]}" style="object-position:${(POS[k]||'50% 50%')}"`;
 $$('img[data-u]').forEach(i=>i.src=IMGH[i.dataset.u]);
 const WA='https://wa.me/996553387878?text=',enc=encodeURIComponent;
@@ -435,7 +435,7 @@ addEventListener('scroll',()=>$('#hd').classList.toggle('fx',scrollY>594),{passi
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 </body>
 </html>

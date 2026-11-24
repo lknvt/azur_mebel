@@ -35,8 +35,8 @@ window.AZ = (function(){
   const byId = id => products.find(p=>p.id===id);
   const mood = k => moods.find(m=>m.k===k);
   const cat  = k => cats.find(c=>c.k===k);
-  const gallery = p => [ p.i, ...(scenes[p.m]||[]).slice(0,2) ];   // ключи файлов в img/
-  const src = (k,pos) => 'img/'+k+'.jpg';
+  const gallery = p => [ p.i, ...(scenes[p.m]||[]).slice(0,2) ];   // ключи файлов в 
+  const src = (k,pos) => ''+k+'.jpg';
   const related = (p,n=4) => {
     const r = products.filter(x=>x.id!==p.id && (x.c===p.c || x.m===p.m));
     return r.sort((a,b)=>(b.c===p.c)-(a.c===p.c)).slice(0,n);

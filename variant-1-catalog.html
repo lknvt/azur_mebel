@@ -6,7 +6,7 @@
 <title>Каталог — AZUR, садовая мебель Higold</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 <style>
 :root{--ink:#000;--k:#212121;--mut:#8a8a8a;--g:#F7F7F8;--ln:#e6e6e8;--pad:50px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -356,8 +356,8 @@ body.subpg{padding-top:92px}
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 <script>
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -373,7 +373,7 @@ let favs=[];try{favs=JSON.parse(localStorage.getItem('azur_fav')||'[]')}catch(e)
 const HEART='<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>';
 function drawTiles(){
   const all=[{k:'',n:'Все модели',i:'f19',pos:'50% 50%'},...AZ.cats];
-  $('#ct2').innerHTML=all.map(c=>`<div class="cat ${c.k===cat?'on':''}" data-k="${c.k}"><div class="im"><img src="img/${c.i}.jpg" style="object-position:${c.pos}" alt=""></div><div class="t">${c.n}</div></div>`).join('');
+  $('#ct2').innerHTML=all.map(c=>`<div class="cat ${c.k===cat?'on':''}" data-k="${c.k}"><div class="im"><img src="${c.i}.jpg" style="object-position:${c.pos}" alt=""></div><div class="t">${c.n}</div></div>`).join('');
   $$('#ct2 .cat').forEach(e=>e.onclick=()=>{cat=e.dataset.k;draw()});
 }
 function drawFilters(){
@@ -393,7 +393,7 @@ function draw(){
   $('#bci').style.display=C?'':'none';$('#bcn').textContent=C?C.n:'';
   document.title=(C?C.n+' · ':'Каталог · ')+'AZUR — садовая мебель Higold';
   $('#cnt').textContent=plural(L.length);
-  $('#pgrid').innerHTML=L.map(p=>{const m=AZ.mood(p.m);return `<a class="gc" href="${AZ.link.product(p.id)}" style="--c:${m.c}"><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="tg"><i></i>${m.n}</span><button class="hv ${favs.includes(p.id)?'on':''}" data-f="${p.id}" aria-label="В избранное">${HEART}</button><button class="qa" data-lead="product" data-product="${p.id}" data-source="catalog-card">Получить расчёт</button></div><div class="nm">${p.n}</div><div class="vv">${p.v}</div><div class="pr">Цена <span>по запросу</span></div></a>`}).join('');
+  $('#pgrid').innerHTML=L.map(p=>{const m=AZ.mood(p.m);return `<a class="gc" href="${AZ.link.product(p.id)}" style="--c:${m.c}"><div class="im"><img src="${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="tg"><i></i>${m.n}</span><button class="hv ${favs.includes(p.id)?'on':''}" data-f="${p.id}" aria-label="В избранное">${HEART}</button><button class="qa" data-lead="product" data-product="${p.id}" data-source="catalog-card">Получить расчёт</button></div><div class="nm">${p.n}</div><div class="vv">${p.v}</div><div class="pr">Цена <span>по запросу</span></div></a>`}).join('');
   $('#empty').style.display=L.length?'none':'block';
   $$('#pgrid .hv').forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();const id=b.dataset.f;favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];try{localStorage.setItem('azur_fav',JSON.stringify(favs))}catch(x){}b.classList.toggle('on');favCount();toast(favs.includes(id)?'Добавлено в избранное':'Убрано из избранного')});
   $$('#pgrid .qa').forEach(b=>b.addEventListener('click',e=>e.stopPropagation()));
@@ -407,7 +407,7 @@ addEventListener('popstate',()=>{const q=new URLSearchParams(location.search);ca
 
 $('#bg').onclick=()=>$('#mn').classList.add('on');$('#mx').onclick=()=>$('#mn').classList.remove('on');
 $('#sb').onclick=()=>{$('#sr').classList.add('on');$('#si').focus();ds('')};$('#sx').onclick=()=>$('#sr').classList.remove('on');
-function ds(q){$('#sres').innerHTML=AZ.products.filter(p=>(p.n+' '+p.v).toLowerCase().includes(q.toLowerCase())).map(p=>`<a class="gc" href="${AZ.link.product(p.id)}" style="display:block"><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt=""></div><div class="nm">${p.n}</div><div class="vv">${p.v}</div></a>`).join('')||'<p style="color:#888">Ничего не найдено</p>'}
+function ds(q){$('#sres').innerHTML=AZ.products.filter(p=>(p.n+' '+p.v).toLowerCase().includes(q.toLowerCase())).map(p=>`<a class="gc" href="${AZ.link.product(p.id)}" style="display:block"><div class="im"><img src="${p.i}.jpg" style="object-position:${p.pos}" alt=""></div><div class="nm">${p.n}</div><div class="vv">${p.v}</div></a>`).join('')||'<p style="color:#888">Ничего не найдено</p>'}
 $('#si').oninput=e=>ds(e.target.value);
 $('#fb').onclick=()=>{let f=[];try{f=JSON.parse(localStorage.getItem('azur_fav')||'[]')}catch(e){}toast(f.length?'Избранное: '+f.map(i=>AZ.byId(i).n).join(', '):'В избранном пока пусто')};
 $('#cb').onclick=()=>AzurLead.open({type:'general',source:'header-bag'});

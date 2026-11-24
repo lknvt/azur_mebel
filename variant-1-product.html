@@ -6,7 +6,7 @@
 <title>Карточка товара — AZUR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 <style>
 :root{--ink:#000;--k:#212121;--mut:#8a8a8a;--g:#F7F7F8;--ln:#e6e6e8;--pad:50px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -351,8 +351,8 @@ body.subpg{padding-top:92px}
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 <script>
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -363,11 +363,12 @@ function filterProducts(cat,mood,mat){return AZ.products.filter(p=>(!cat||p.c===
 function setQ(o){const u=new URL(location.href);Object.entries(o).forEach(([k,v])=>v?u.searchParams.set(k,v):u.searchParams.delete(k));if(u.href!==location.href)history.pushState(null,'',u)}
 function plural(n){return n+' '+(n%10===1&&n%100!==11?'модель':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?'модели':'моделей')}
 
-const p=AZ.byId(Q.get('id'))||AZ.products[0];
+function renderProduct(){
+const p=AZ.byId(new URLSearchParams(location.search).get('id'))||AZ.products[0];
 const m=AZ.mood(p.m),C=AZ.cat(p.c),G=AZ.gallery(p);
 document.title=p.n+' · '+p.v+' — AZUR';
 $('#bcc').textContent=C.n;$('#bcc').href=AZ.link.catalog(p.c);$('#bcn').textContent=p.n;
-const SRC=k=>'img/'+k+'.jpg';
+const SRC=k=>''+k+'.jpg';
 let gi=0;
 function drawG(){
   $('#th').innerHTML=G.map((k,i)=>`<button class="${i===gi?'on':''}" data-i="${i}"><img src="${SRC(k)}" alt=""></button>`).join('');
@@ -392,12 +393,18 @@ const TABS=[['Описание',`<p>${p.d}</p><p style="margin-top:12px">Меб�
 let ti=0;
 function drawT(){$('#tb').innerHTML=TABS.map((t,i)=>`<button class="${i===ti?'on':''}" data-i="${i}">${t[0]}</button>`).join('');$('#tp').innerHTML=TABS.map((t,i)=>`<div class="tp ${i===ti?'on':''}">${t[1]}</div>`).join('');$$('#tb button').forEach(b=>b.onclick=()=>{ti=+b.dataset.i;drawT()})}
 drawT();
-$('#rel').innerHTML=AZ.related(p,4).map(x=>{const mm=AZ.mood(x.m);return `<a class="gc" href="${AZ.link.product(x.id)}" style="--c:${mm.c}"><div class="im"><img src="img/${x.i}.jpg" style="object-position:${x.pos}" alt="${x.n}" loading="lazy"><span class="tg"><i></i>${mm.n}</span></div><div class="nm">${x.n}</div><div class="vv">${x.v}</div><div class="pr">Цена <span>по запросу</span></div></a>`}).join('');
+$('#rel').innerHTML=AZ.related(p,4).map(x=>{const mm=AZ.mood(x.m);return `<a class="gc" href="${AZ.link.product(x.id)}" style="--c:${mm.c}"><div class="im"><img src="${x.i}.jpg" style="object-position:${x.pos}" alt="${x.n}" loading="lazy"><span class="tg"><i></i>${mm.n}</span></div><div class="nm">${x.n}</div><div class="vv">${x.v}</div><div class="pr">Цена <span>по запросу</span></div></a>`}).join('');
 $('#stkn').textContent=p.n+' · '+p.v;$('#stkb').onclick=()=>AzurLead.open({type:'product',product:p.id,source:'product-sticky'});
+
+}
+renderProduct();
+
+document.addEventListener('click',e=>{const a=e.target.closest('.opt a,.others a,.sw a,#rel a');if(!a||e.metaKey||e.ctrlKey||e.shiftKey||!/-product\.html\?id=/.test(a.href))return;e.preventDefault();history.pushState(null,'',a.href);renderProduct();window.scrollTo({top:0,behavior:'smooth'})});
+addEventListener('popstate',renderProduct);
 
 $('#bg').onclick=()=>$('#mn').classList.add('on');$('#mx').onclick=()=>$('#mn').classList.remove('on');
 $('#sb').onclick=()=>{$('#sr').classList.add('on');$('#si').focus();ds('')};$('#sx').onclick=()=>$('#sr').classList.remove('on');
-function ds(q){$('#sres').innerHTML=AZ.products.filter(p=>(p.n+' '+p.v).toLowerCase().includes(q.toLowerCase())).map(p=>`<a class="gc" href="${AZ.link.product(p.id)}" style="display:block"><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt=""></div><div class="nm">${p.n}</div><div class="vv">${p.v}</div></a>`).join('')||'<p style="color:#888">Ничего не найдено</p>'}
+function ds(q){$('#sres').innerHTML=AZ.products.filter(p=>(p.n+' '+p.v).toLowerCase().includes(q.toLowerCase())).map(p=>`<a class="gc" href="${AZ.link.product(p.id)}" style="display:block"><div class="im"><img src="${p.i}.jpg" style="object-position:${p.pos}" alt=""></div><div class="nm">${p.n}</div><div class="vv">${p.v}</div></a>`).join('')||'<p style="color:#888">Ничего не найдено</p>'}
 $('#si').oninput=e=>ds(e.target.value);
 $('#fb').onclick=()=>{let f=[];try{f=JSON.parse(localStorage.getItem('azur_fav')||'[]')}catch(e){}toast(f.length?'Избранное: '+f.map(i=>AZ.byId(i).n).join(', '):'В избранном пока пусто')};
 $('#cb').onclick=()=>AzurLead.open({type:'general',source:'header-bag'});

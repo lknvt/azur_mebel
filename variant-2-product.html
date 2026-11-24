@@ -6,7 +6,7 @@
 <title>Карточка товара — azur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@500;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 <style>
 :root{--bg:#F4F2EE;--ink:#0d0d0d;--mut:#a39f97;--card:#E6E3DD;--pad:28px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -263,8 +263,8 @@ footer .big-wm{font-family:Unbounded,sans-serif;font-weight:800;font-size:27vw;l
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 <script>
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -276,12 +276,13 @@ function setQ(o){const u=new URL(location.href);Object.entries(o).forEach(([k,v]
 function plural(n){return n+' '+(n%10===1&&n%100!==11?'модель':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?'модели':'моделей')}
 
 const WP=['f05','f15','f12','f10'];let wi=0;
-$('#wph').innerHTML=WP.map((k,i)=>`<img src="img/${k}.jpg" style="opacity:${i?0:1}" alt="">`).join('');
+$('#wph').innerHTML=WP.map((k,i)=>`<img src="${k}.jpg" style="opacity:${i?0:1}" alt="">`).join('');
 setInterval(()=>{wi=(wi+1)%WP.length;$$('#wph img').forEach((m,i)=>m.style.opacity=i===wi?1:0)},2600);
-const p=AZ.byId(Q.get('id'))||AZ.products[0],m=AZ.mood(p.m),C=AZ.cat(p.c),G=AZ.gallery(p);
+function renderProduct(){
+const p=AZ.byId(new URLSearchParams(location.search).get('id'))||AZ.products[0],m=AZ.mood(p.m),C=AZ.cat(p.c),G=AZ.gallery(p);
 document.title=p.n+' · azur';
 $('#bcc').textContent=C.n;$('#bcc').href=AZ.link.catalog(p.c);$('#bcn').textContent=p.n;
-$('#gl').innerHTML=G.map((k,i)=>`<img src="img/${k}.jpg" alt="${p.n}">`).join('');
+$('#gl').innerHTML=G.map((k,i)=>`<img src="${k}.jpg" alt="${p.n}">`).join('');
 $$('#gl img').forEach(im=>im.onclick=()=>{$('#lb img').src=im.src;$('#lb').classList.add('on')});$('#lb').onclick=()=>$('#lb').classList.remove('on');
 const same=AZ.products.filter(x=>x.c===p.c);
 $('#in').innerHTML=`<div><div class="lab" style="--c:${m.c}"><i></i>${C.n} · ${m.n}</div><h1 class="cond">${p.n}</h1><div class="vv">${p.v}</div><p class="ds">${p.d}</p>
@@ -289,7 +290,13 @@ $('#in').innerHTML=`<div><div class="lab" style="--c:${m.c}"><i></i>${C.n} · ${
  <div class="others">${same.map(x=>{const mm=AZ.mood(x.m);return `<a class="${x.id===p.id?'on':''}" href="${AZ.link.product(x.id)}" style="--c:${mm.c}"><i></i>${x.n}</a>`}).join('')}</div></div>
  <div><div class="pr">По запросу<small>Стоимость зависит от конфигурации и цвета ткани</small></div>
  <div class="bt"><button class="cta" data-lead="product" data-product="${p.id}" data-source="product-main">Получить расчёт →</button><a class="cta light" style="border:1px solid #cfcac1" target="_blank" href="${AZ.WA}${AZ.enc('Здравствуйте! Интересует модель '+p.n+' ('+p.v+').')}">WhatsApp</a><button class="cta light" style="border:1px solid #cfcac1" data-lead="showroom" data-source="product-showroom">В шоурум</button></div></div>`;
-$('#rel').innerHTML=AZ.related(p,3).map(x=>{const mm=AZ.mood(x.m);return `<a class="gt" href="${AZ.link.product(x.id)}" style="--c:${mm.c}"><img src="img/${x.i}.jpg" style="object-position:${x.pos}" alt="${x.n}" loading="lazy"><span class="dt"><i></i>${mm.n}</span><div class="tg"><div class="cap"><b>${x.n}</b><span>${x.v}</span></div></div></a>`}).join('');
+$('#rel').innerHTML=AZ.related(p,3).map(x=>{const mm=AZ.mood(x.m);return `<a class="gt" href="${AZ.link.product(x.id)}" style="--c:${mm.c}"><img src="${x.i}.jpg" style="object-position:${x.pos}" alt="${x.n}" loading="lazy"><span class="dt"><i></i>${mm.n}</span><div class="tg"><div class="cap"><b>${x.n}</b><span>${x.v}</span></div></div></a>`}).join('');
+
+}
+renderProduct();
+
+document.addEventListener('click',e=>{const a=e.target.closest('.opt a,.others a,.sw a,#rel a');if(!a||e.metaKey||e.ctrlKey||e.shiftKey||!/-product\.html\?id=/.test(a.href))return;e.preventDefault();history.pushState(null,'',a.href);renderProduct();window.scrollTo({top:0,behavior:'smooth'})});
+addEventListener('popstate',renderProduct);
 
 </script>
 </body>

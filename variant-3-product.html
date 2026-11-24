@@ -6,7 +6,7 @@
 <title>Карточка товара — azur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@500;700&family=Unbounded:wght@800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 <style>
 :root{--bg:#F4F2EE;--ink:#0d0d0d;--mut:#9b978f;--card:#E9E6E0;--mood:#F4F2EE;--pad:32px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -287,8 +287,8 @@ body.subpg{padding-top:96px}
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 <script>
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -299,16 +299,17 @@ function filterProducts(cat,mood,mat){return AZ.products.filter(p=>(!cat||p.c===
 function setQ(o){const u=new URL(location.href);Object.entries(o).forEach(([k,v])=>v?u.searchParams.set(k,v):u.searchParams.delete(k));if(u.href!==location.href)history.pushState(null,'',u)}
 function plural(n){return n+' '+(n%10===1&&n%100!==11?'модель':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?'модели':'моделей')}
 
-const p=AZ.byId(Q.get('id'))||AZ.products[0],m=AZ.mood(p.m),C=AZ.cat(p.c),G=AZ.gallery(p);
+function renderProduct(){
+const p=AZ.byId(new URLSearchParams(location.search).get('id'))||AZ.products[0],m=AZ.mood(p.m),C=AZ.cat(p.c),G=AZ.gallery(p);
 document.title=p.n+' · azur';document.body.classList.add('pp3');
 let gi=0;
 function drawG(){
-  $('#tb3').innerHTML=G.map((k,i)=>`<button class="${i===gi?'on':''}" data-i="${i}"><img src="img/${k}.jpg" alt=""></button>`).join('');
-  $('#mi').src='img/'+G[gi]+'.jpg';$('#mi').style.objectPosition='50% 50%';
+  $('#tb3').innerHTML=G.map((k,i)=>`<button class="${i===gi?'on':''}" data-i="${i}"><img src="${k}.jpg" alt=""></button>`).join('');
+  $('#mi').src=''+G[gi]+'.jpg';$('#mi').style.objectPosition='50% 50%';
   $$('#tb3 button').forEach(b=>b.onclick=()=>{gi=+b.dataset.i;drawG()});
 }
 drawG();
-$('#mn3').onclick=()=>{$('#lb img').src='img/'+G[gi]+'.jpg';$('#lb').classList.add('on')};$('#lb').onclick=()=>$('#lb').classList.remove('on');
+$('#mn3').onclick=()=>{$('#lb img').src=''+G[gi]+'.jpg';$('#lb').classList.add('on')};$('#lb').onclick=()=>$('#lb').classList.remove('on');
 const same=AZ.products.filter(x=>x.c===p.c);
 $('#pdr').innerHTML=`<div style="font-size:11px;color:var(--mut);margin-bottom:16px"><a href="variant-3.html">Главная</a> / <a href="variant-3-catalog.html">Каталог</a> / <a href="${AZ.link.catalog(p.c)}">${C.n}</a></div>
  <span class="chip3" style="--c:${m.c}"><i></i>${m.n}</span><h1 class="cond">${p.n}</h1><div class="vv">${p.v}</div><p class="ds">${p.d}</p>
@@ -317,9 +318,15 @@ $('#pdr').innerHTML=`<div style="font-size:11px;color:var(--mut);margin-bottom:1
  <div class="bt"><button class="cta" data-lead="product" data-product="${p.id}" data-source="product-main">Получить расчёт →</button><a class="cta ghost3" target="_blank" href="${AZ.WA}${AZ.enc('Здравствуйте! Интересует модель '+p.n+' ('+p.v+').')}">WhatsApp</a><button class="cta ghost3" data-lead="showroom" data-source="product-showroom">В шоурум</button></div>
  <table><tr><td>Категория</td><td>${C.n}</td></tr><tr><td>Материалы</td><td>${p.mat}</td></tr><tr><td>Цвет ткани</td><td>${m.n}</td></tr><tr><td>Назначение</td><td>Дом, ресторан, отель, терраса офиса</td></tr><tr><td>Размеры</td><td>Подберём под вашу террасу</td></tr><tr><td>Наличие</td><td>Уточняйте у менеджера</td></tr><tr><td>Бренд</td><td>Higold, эксклюзивный представитель AZUR</td></tr></table>
  <div class="mini"><div><b>Шоурум</b>Исакеева 1/1, 9:00–18:00</div><div><b>Подбор комплекта</b>Под площадь и сценарий</div><div><b>Для бизнеса</b>Рестораны, отели, офисы</div></div>`;
-$('#scn').innerHTML=AZ.scenes[p.m].slice(0,2).map(k=>`<img src="img/${k}.jpg" alt="" loading="lazy">`).join('');
-$('#rel').innerHTML=AZ.related(p,4).map(x=>{const mm=AZ.mood(x.m);return `<a class="mc3" href="${AZ.link.product(x.id)}" style="--c:${mm.c}"><div class="im"><img src="img/${x.i}.jpg" style="object-position:${x.pos}" alt="${x.n}" loading="lazy"><span class="tg"><i></i>${mm.n}</span></div><div class="m"><div><b>${x.n}</b><br><span class="v">${x.v}</span></div><span class="pr">по запросу</span></div></a>`}).join('');
+$('#scn').innerHTML=AZ.scenes[p.m].slice(0,2).map(k=>`<img src="${k}.jpg" alt="" loading="lazy">`).join('');
+$('#rel').innerHTML=AZ.related(p,4).map(x=>{const mm=AZ.mood(x.m);return `<a class="mc3" href="${AZ.link.product(x.id)}" style="--c:${mm.c}"><div class="im"><img src="${x.i}.jpg" style="object-position:${x.pos}" alt="${x.n}" loading="lazy"><span class="tg"><i></i>${mm.n}</span></div><div class="m"><div><b>${x.n}</b><br><span class="v">${x.v}</span></div><span class="pr">по запросу</span></div></a>`}).join('');
 $('#stkn').textContent=p.n;$('#stkb').onclick=()=>AzurLead.open({type:'product',product:p.id,source:'product-sticky'});
+
+}
+renderProduct();
+
+document.addEventListener('click',e=>{const a=e.target.closest('.opt a,.others a,.sw a,#rel a');if(!a||e.metaKey||e.ctrlKey||e.shiftKey||!/-product\.html\?id=/.test(a.href))return;e.preventDefault();history.pushState(null,'',a.href);renderProduct();window.scrollTo({top:0,behavior:'smooth'})});
+addEventListener('popstate',renderProduct);
 
 </script>
 </body>

@@ -201,7 +201,7 @@ footer .big-wm{font-family:Unbounded,sans-serif;font-weight:800;font-size:27vw;l
 @media(max-width:800px){.rv4{--rh:116px}.rv4-r{grid-template-columns:auto 1fr;padding:0 12px}.rv4-st{display:none}}
 .rv4{padding:9vw var(--pad) 0}.rv4-top h2{font:700 clamp(30px,4vw,64px)/1 "Roboto Condensed";text-transform:uppercase}.rv4-box{border-top:1px solid #0d0d0d}.rv4-av{background:#0d0d0d;color:#fff;border-radius:50%}.rv4-n b{font-family:"Roboto Condensed";text-transform:uppercase;font-size:18px}.rv4-r{padding-left:0}.rv4-fade{background:linear-gradient(transparent,#F4F2EE)}
 </style>
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 </head>
 <body>
 
@@ -224,17 +224,17 @@ footer .big-wm{font-family:Unbounded,sans-serif;font-weight:800;font-size:27vw;l
 <section class="sec">
   <h2 class="h2 cond fade">Бренд, рождённый любовью к природе</h2>
   <div class="cards">
-    <div class="cd"><img src="img/f15.jpg" style="object-position:70% 50%" alt=""><small>01</small><div><h3 class="cond">Натуральные<br>материалы</h3></div><p>Тик, алюминий и уличные ткани. Материалы, которые остаются красивыми под солнцем, дождём и снегом.</p></div>
-    <div class="cd"><img src="img/f19.jpg" style="object-position:40% 50%" alt=""><small>02</small><div><h3 class="cond">Подбор под<br>вашу террасу</h3></div><p>Модульные диваны и обеденные группы собираем под размер и форму вашего пространства.</p></div>
-    <div class="cd"><img src="img/f21.jpg" style="object-position:45% 50%" alt=""><small>03</small><div><h3 class="cond">Для дома<br>и бизнеса</h3></div><p>Мебель для частных садов, ресторанов, отелей и террас бизнес-центров.</p></div>
-    <div class="cd"><img src="img/f23.jpg" style="object-position:30% 50%" alt=""><small>04</small><div><h3 class="cond">Higold<br>в Кыргызстане</h3></div><p>Мы эксклюзивный представитель Higold. Все коллекции можно увидеть и потрогать в шоуруме.</p></div>
+    <div class="cd"><img src="f15.jpg" style="object-position:70% 50%" alt=""><small>01</small><div><h3 class="cond">Натуральные<br>материалы</h3></div><p>Тик, алюминий и уличные ткани. Материалы, которые остаются красивыми под солнцем, дождём и снегом.</p></div>
+    <div class="cd"><img src="f19.jpg" style="object-position:40% 50%" alt=""><small>02</small><div><h3 class="cond">Подбор под<br>вашу террасу</h3></div><p>Модульные диваны и обеденные группы собираем под размер и форму вашего пространства.</p></div>
+    <div class="cd"><img src="f21.jpg" style="object-position:45% 50%" alt=""><small>03</small><div><h3 class="cond">Для дома<br>и бизнеса</h3></div><p>Мебель для частных садов, ресторанов, отелей и террас бизнес-центров.</p></div>
+    <div class="cd"><img src="f23.jpg" style="object-position:30% 50%" alt=""><small>04</small><div><h3 class="cond">Higold<br>в Кыргызстане</h3></div><p>Мы эксклюзивный представитель Higold. Все коллекции можно увидеть и потрогать в шоуруме.</p></div>
   </div>
 </section>
 
-<div class="full fade"><img src="img/f17_m.jpg" alt=""><p>Мебель, из которой не хочется уходить с террасы.</p></div>
+<div class="full fade"><img src="f17_m.jpg" alt=""><p>Мебель, из которой не хочется уходить с террасы.</p></div>
 
-<div class="stack" style="margin-top:1px"><img src="img/f23_m.jpg" alt=""></div>
-<div class="inset" style="margin-top:1px"><img src="img/f01_m.jpg" alt=""><p>Шезлонги и дэйбеды для тихого отдыха у воды и под сенью сосен.</p><div class="in"><img src="img/f07.jpg" alt=""></div></div>
+<div class="stack" style="margin-top:1px"><img src="f23_m.jpg" alt=""></div>
+<div class="inset" style="margin-top:1px"><img src="f01_m.jpg" alt=""><p>Шезлонги и дэйбеды для тихого отдыха у воды и под сенью сосен.</p><div class="in"><img src="f07.jpg" alt=""></div></div>
 
 <section class="soc">
   <h2 class="h2 cond fade">Делимся любовью к садам<br>#azuroutdoor</h2>
@@ -276,7 +276,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.c
 $$('.fade').forEach(e=>io.observe(e));
 /* wordmark photo cycles */
 const WP=['f05','f15','f12','f10'];let wi=0;
-$('#wph').innerHTML=WP.map((k,i)=>`<img src="img/${k}.jpg" style="opacity:${i?0:1}" alt="">`).join('');
+$('#wph').innerHTML=WP.map((k,i)=>`<img src="${k}.jpg" style="opacity:${i?0:1}" alt="">`).join('');
 setInterval(()=>{wi=(wi+1)%WP.length;$$('#wph img').forEach((m,i)=>m.style.opacity=i===wi?1:0)},2600);
 /* products */
 const P=[
@@ -298,7 +298,7 @@ function drawC(){
 }
 function drawS(){
  const L=P.map((p,i)=>({...p,k:i})).filter(p=>cat==='all'||p.c===cat);
- $('#strip').innerHTML=L.map(p=>`<div class="pt" data-k="${p.k}"><img src="img/${p.i}.jpg" style="object-position:${p.pos} 50%" alt="${p.n}" loading="lazy"><div class="tg"><span class="chip">${p.n}</span><span class="chip">по запросу</span></div></div>`).join('');
+ $('#strip').innerHTML=L.map(p=>`<div class="pt" data-k="${p.k}"><img src="${p.i}.jpg" style="object-position:${p.pos} 50%" alt="${p.n}" loading="lazy"><div class="tg"><span class="chip">${p.n}</span><span class="chip">по запросу</span></div></div>`).join('');
  $('#cnt').textContent=L.length+' '+(L.length===1?'позиция':L.length<5?'позиции':'позиций');
  $$('#strip .pt').forEach(e=>e.onclick=()=>{location.href='variant-2-product.html?id='+PID(P[+e.dataset.k].n)});
  $('#strip').scrollTo({left:0});
@@ -306,23 +306,23 @@ function drawS(){
 drawC();drawS();
 const PID=n=>{n=n.toLowerCase();return n.includes('vasca')?'vasca':n.includes('exee')?'exee':n.includes('borromeo')?'borromeo':n.includes('cocoon')?'cocoon':n.includes('nofi')?'nofi':n.includes('heck ii')?'heck2':n.includes('heck')?'heck':n.includes('daybed')?'daybed':n.includes('visconti')?'visconti':'vasca'};
 function openP(k){const p=P[k];
- $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos} 50%" alt=""></div><div class="tx"><div><small style="color:var(--mut)">${CL.find(c=>c[0]===p.c)[1]}</small><h3 class="cond">${p.n}</h3><p>${p.d}</p><table><tr><td>Вариант</td><td>${p.t}</td></tr><tr><td>Материалы</td><td>${p.m}</td></tr><tr><td>Цена</td><td>По запросу</td></tr></table></div><div class="btns"><button class="cta" data-lead="product" data-product="${PID(p.n)}" data-source="modal">Получить расчёт</button><a class="cta light" style="border:1px solid #cfcac1" href="variant-2-product.html?id=${PID(p.n)}">Открыть карточку →</a><button class="cta light" id="ad" style="border:1px solid #cfcac1">В запрос</button><a class="cta light" style="border:1px solid #cfcac1" target="_blank" href="${WA}${enc('Здравствуйте! Интересует: '+p.n+' — '+p.t)}">Спросить в WhatsApp</a></div></div>`;
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="${p.i}.jpg" style="object-position:${p.pos} 50%" alt=""></div><div class="tx"><div><small style="color:var(--mut)">${CL.find(c=>c[0]===p.c)[1]}</small><h3 class="cond">${p.n}</h3><p>${p.d}</p><table><tr><td>Вариант</td><td>${p.t}</td></tr><tr><td>Материалы</td><td>${p.m}</td></tr><tr><td>Цена</td><td>По запросу</td></tr></table></div><div class="btns"><button class="cta" data-lead="product" data-product="${PID(p.n)}" data-source="modal">Получить расчёт</button><a class="cta light" style="border:1px solid #cfcac1" href="variant-2-product.html?id=${PID(p.n)}">Открыть карточку →</a><button class="cta light" id="ad" style="border:1px solid #cfcac1">В запрос</button><a class="cta light" style="border:1px solid #cfcac1" target="_blank" href="${WA}${enc('Здравствуйте! Интересует: '+p.n+' — '+p.t)}">Спросить в WhatsApp</a></div></div>`;
  $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
  $('#ad').onclick=()=>{cart.push(k);$('#fc').textContent=cart.length;toast('Добавлено в запрос');$('#ov').classList.remove('on')};
 }
 $('#ov').onclick=e=>{if(e.target.id==='ov')$('#ov').classList.remove('on')};
 addEventListener('keydown',e=>e.key==='Escape'&&$('#ov').classList.remove('on'));
 $('#fab').onclick=()=>{
- $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/f19.jpg" alt=""></div><div class="tx lst"><div><h3 class="cond">Ваш запрос</h3><div>${cart.length?cart.map((k,i)=>`<div class="it"><img src="img/${P[k].i}.jpg" style="object-position:${P[k].pos} 50%"><div>${P[k].n}<br><span style="color:var(--mut)">${P[k].t}</span></div><button data-r="${i}">✕</button></div>`).join(''):'<p>Пока пусто. Откройте карточку и нажмите «Добавить в запрос» — мы подготовим предложение.</p>'}</div></div>${cart.length?`<a class="cta" target="_blank" href="${WA}${enc('Здравствуйте! Хочу получить предложение на: '+cart.map(k=>P[k].n+' ('+P[k].t+')').join('; '))}">Отправить в WhatsApp →</a>`:''}</div>`;
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="f19.jpg" alt=""></div><div class="tx lst"><div><h3 class="cond">Ваш запрос</h3><div>${cart.length?cart.map((k,i)=>`<div class="it"><img src="${P[k].i}.jpg" style="object-position:${P[k].pos} 50%"><div>${P[k].n}<br><span style="color:var(--mut)">${P[k].t}</span></div><button data-r="${i}">✕</button></div>`).join(''):'<p>Пока пусто. Откройте карточку и нажмите «Добавить в запрос» — мы подготовим предложение.</p>'}</div></div>${cart.length?`<a class="cta" target="_blank" href="${WA}${enc('Здравствуйте! Хочу получить предложение на: '+cart.map(k=>P[k].n+' ('+P[k].t+')').join('; '))}">Отправить в WhatsApp →</a>`:''}</div>`;
  $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
  $$('#md [data-r]').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.r,1);$('#fc').textContent=cart.length;$('#fab').click()});
 };
 /* trio */
 const T=[['f19_h','Лаунж','Угловой диван · Vasca','45% 50%'],['f03_h','Обеды','Обеденная группа · Nofi 2.0','40% 50%'],['f23_h','Тишина','Лаунж-кресла · Borromeo','35% 50%']];
-$('#trio').innerHTML=T.map(t=>`<div class="big"><img src="img/${t[0]}.jpg" style="object-position:${t[3]}" alt=""><div class="chips"><span class="chip">${t[2]}</span><span class="chip">по запросу</span></div><div class="lab">${t[1]}</div></div>`).join('');
+$('#trio').innerHTML=T.map(t=>`<div class="big"><img src="${t[0]}.jpg" style="object-position:${t[3]}" alt=""><div class="chips"><span class="chip">${t[2]}</span><span class="chip">по запросу</span></div><div class="lab">${t[1]}</div></div>`).join('');
 $$('.big').forEach(b=>b.onclick=()=>{b.classList.toggle('on')});
 /* social */
-$('#sg').innerHTML=['f21','f05','f17','f12','f25','f07','f19'].map(k=>`<a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank"><img src="img/${k}.jpg" alt="" loading="lazy"></a>`).join('');
+$('#sg').innerHTML=['f21','f05','f17','f12','f25','f07','f19'].map(k=>`<a href="https://www.instagram.com/azur.outdoor.kg/" target="_blank"><img src="${k}.jpg" alt="" loading="lazy"></a>`).join('');
 /* visit */
 const DN=['вс','пн','вт','ср','чт','пт','сб'];let d='',t='';
 $('#dd').innerHTML=Array.from({length:6},(_,i)=>{const x=new Date();x.setDate(x.getDate()+i);return `<button>${i?DN[x.getDay()]+' ':'сегодня '}${x.getDate()}.${String(x.getMonth()+1).padStart(2,'0')}</button>`}).join('');
@@ -334,7 +334,7 @@ $('#nlb').onclick=()=>{const v=$('#nlin').value.trim();if(!v)return toast('На�
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 </body>
 </html>

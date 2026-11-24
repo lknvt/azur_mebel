@@ -213,7 +213,7 @@ footer .wm{font-size:27vw;text-align:center;margin-top:8vw;transform:translateY(
 @media(max-width:800px){.rv4{--rh:116px}.rv4-r{grid-template-columns:auto 1fr;padding:0 12px}.rv4-st{display:none}}
 .rv4{padding:8vw var(--pad) 0}.rv4-top h2{font:700 clamp(32px,4.4vw,70px)/1 "Roboto Condensed";text-transform:uppercase}.rv4-box{background:#fff;border-radius:24px;overflow:hidden;padding:6px 0;box-shadow:0 2px 28px rgba(0,0,0,.05)}.rv4-av{background:linear-gradient(135deg,#9DB5A3,#B9A6D9);color:#fff}.rv4-n b{font-family:"Roboto Condensed";text-transform:uppercase;font-size:18px}.rv4-fade{background:linear-gradient(transparent,#fff)}
 </style>
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 </head>
 <body>
 
@@ -284,7 +284,7 @@ addEventListener('scroll',()=>$('#hd').classList.toggle('s',scrollY>innerHeight*
 /* hero */
 const HS=[['f17','Вечер в сосновом саду','Тиковый дэйбед под перголой'],['f03','Ужин с видом на море','Обеденные группы из тика'],['f19','Город у ваших ног','Диваны шалфейного цвета на крыше'],['f23','Двор, где тихо','Лаунж-кресла в сиреневых тонах']];
 let hi=0,ht;
-$('#top').insertAdjacentHTML('afterbegin',HS.map((h,i)=>`<div class="sl ${i?'':'on'}" style="background-image:url('img/${h[0]}_h.jpg')"></div>`).join(''));
+$('#top').insertAdjacentHTML('afterbegin',HS.map((h,i)=>`<div class="sl ${i?'':'on'}" style="background-image:url('${h[0]}_h.jpg')"></div>`).join(''));
 function hs(i){hi=(i+HS.length)%HS.length;$$('.hero .sl').forEach((s,j)=>s.classList.toggle('on',j===hi));$('#h1').innerHTML=HS[hi][1].replace(/ /,' ').replace(/(.{14,}?) /,'$1<br>');$('#hp').textContent=HS[hi][2];$('#ct').textContent='0'+(hi+1)+' / 0'+HS.length;clearInterval(ht);ht=setInterval(()=>hs(hi+1),2000)}
 $('#pv').onclick=()=>hs(hi-1);$('#nx').onclick=()=>hs(hi+1);hs(0);
 /* moods */
@@ -309,19 +309,19 @@ let mood='all',cart=[];
 $('#sw').innerHTML=M.map(m=>`<button data-k="${m[0]}" class="${m[0]==='all'?'on':''}" style="--c:${m[3]}"><i></i>${m[1]}</button>`).join('');
 $$('#sw button').forEach(b=>b.onclick=()=>{mood=b.dataset.k;$$('#sw button').forEach(x=>x.classList.toggle('on',x===b));const m=M.find(x=>x[0]===mood);$('#moods').style.setProperty('--mood',m[2]);drawM()});
 function drawM(){const L=P.map((p,k)=>({...p,k})).filter(p=>mood==='all'||p.m===mood);
- $('#mg').innerHTML=L.map((p,j)=>{const m=M.find(x=>x[0]===p.m);return `<div class="mc" data-k="${p.k}" style="animation-delay:${j*60}ms;--c:${m[3]}"><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="tg"><i></i>${m[1]}</span></div><div class="m"><div><b>${p.n}</b><br><span>${p.v}</span></div><span class="pr">по запросу</span></div></div>`}).join('');
+ $('#mg').innerHTML=L.map((p,j)=>{const m=M.find(x=>x[0]===p.m);return `<div class="mc" data-k="${p.k}" style="animation-delay:${j*60}ms;--c:${m[3]}"><div class="im"><img src="${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="tg"><i></i>${m[1]}</span></div><div class="m"><div><b>${p.n}</b><br><span>${p.v}</span></div><span class="pr">по запросу</span></div></div>`}).join('');
  $$('#mg .mc').forEach(c=>c.onclick=()=>{location.href='variant-3-product.html?id='+PID(P[+c.dataset.k].n)});
 }
 drawM();
 function openP(k){const p=P[k],m=M.find(x=>x[0]===p.m);
- $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt=""></div><div class="tx"><div><small style="color:var(--mut)">${m[1]}</small><h3 class="cond">${p.n}</h3><p>${p.d}</p><table><tr><td>Вариант</td><td>${p.v}</td></tr><tr><td>Материалы</td><td>${p.mat}</td></tr><tr><td>Цена</td><td>По запросу</td></tr></table></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="cta" data-lead="product" data-product="${p.id}" data-source="modal">Получить расчёт</button><a class="cta" style="background:#fff;color:var(--ink);border:1px solid #cfcac1" href="variant-3-product.html?id=${p.id}">Открыть карточку →</a><button class="cta" id="ad" style="background:#fff;color:var(--ink);border:1px solid #cfcac1">В запрос</button><a class="cta" style="background:#fff;color:var(--ink);border:1px solid #cfcac1" target="_blank" href="${WA}${enc('Здравствуйте! Интересует: '+p.n+' — '+p.v)}">Спросить в WhatsApp</a></div></div>`;
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="${p.i}.jpg" style="object-position:${p.pos}" alt=""></div><div class="tx"><div><small style="color:var(--mut)">${m[1]}</small><h3 class="cond">${p.n}</h3><p>${p.d}</p><table><tr><td>Вариант</td><td>${p.v}</td></tr><tr><td>Материалы</td><td>${p.mat}</td></tr><tr><td>Цена</td><td>По запросу</td></tr></table></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="cta" data-lead="product" data-product="${p.id}" data-source="modal">Получить расчёт</button><a class="cta" style="background:#fff;color:var(--ink);border:1px solid #cfcac1" href="variant-3-product.html?id=${p.id}">Открыть карточку →</a><button class="cta" id="ad" style="background:#fff;color:var(--ink);border:1px solid #cfcac1">В запрос</button><a class="cta" style="background:#fff;color:var(--ink);border:1px solid #cfcac1" target="_blank" href="${WA}${enc('Здравствуйте! Интересует: '+p.n+' — '+p.v)}">Спросить в WhatsApp</a></div></div>`;
  $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
  $('#ad').onclick=()=>{cart.push(k);$('#fc').textContent=cart.length;toast('Добавлено в запрос');$('#ov').classList.remove('on')};
 }
 $('#ov').onclick=e=>{if(e.target.id==='ov')$('#ov').classList.remove('on')};
 addEventListener('keydown',e=>e.key==='Escape'&&$('#ov').classList.remove('on'));
 $('#fab').onclick=()=>{
- $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="img/f19.jpg" alt=""></div><div class="tx"><div><h3 class="cond">Ваш запрос</h3>${cart.length?cart.map((k,i)=>`<div class="it"><img src="img/${P[k].i}.jpg" style="object-position:${P[k].pos}"><div>${P[k].n}<br><span style="color:var(--mut)">${P[k].v}</span></div><button data-r="${i}">✕</button></div>`).join(''):'<p>Пока пусто. Откройте карточку и нажмите «Добавить в запрос» — мы подготовим предложение.</p>'}</div>${cart.length?`<a class="cta" target="_blank" href="${WA}${enc('Здравствуйте! Хочу получить предложение на: '+cart.map(k=>P[k].n+' ('+P[k].v+')').join('; '))}">Отправить в WhatsApp →</a>`:''}</div>`;
+ $('#md').innerHTML=`<button class="x" id="mx">✕</button><div class="im"><img src="f19.jpg" alt=""></div><div class="tx"><div><h3 class="cond">Ваш запрос</h3>${cart.length?cart.map((k,i)=>`<div class="it"><img src="${P[k].i}.jpg" style="object-position:${P[k].pos}"><div>${P[k].n}<br><span style="color:var(--mut)">${P[k].v}</span></div><button data-r="${i}">✕</button></div>`).join(''):'<p>Пока пусто. Откройте карточку и нажмите «Добавить в запрос» — мы подготовим предложение.</p>'}</div>${cart.length?`<a class="cta" target="_blank" href="${WA}${enc('Здравствуйте! Хочу получить предложение на: '+cart.map(k=>P[k].n+' ('+P[k].v+')').join('; '))}">Отправить в WhatsApp →</a>`:''}</div>`;
  $('#ov').classList.add('on');$('#mx').onclick=()=>$('#ov').classList.remove('on');
  $$('#md [data-r]').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.r,1);$('#fc').textContent=cart.length;$('#fab').click()});
 };
@@ -333,18 +333,18 @@ const Z=[
 ];
 let zi=0;
 $('#zt').innerHTML=Z.map((z,i)=>`<button class="${i?'':'on'}">${z.t}</button>`).join('');
-$('#zv').innerHTML=Z.map((z,i)=>`<img src="img/${z.i}_m.jpg" class="${i?'':'on'}" alt="">`).join('')+'<div id="zd"></div><div class="zc"><b id="zb"></b><span id="zs"></span></div>';
+$('#zv').innerHTML=Z.map((z,i)=>`<img src="${z.i}_m.jpg" class="${i?'':'on'}" alt="">`).join('')+'<div id="zd"></div><div class="zc"><b id="zb"></b><span id="zs"></span></div>';
 function drawZ(){$$('#zv img').forEach((m,i)=>m.classList.toggle('on',i===zi));$$('#zt button').forEach((b,i)=>b.classList.toggle('on',i===zi));$('#zd').innerHTML=Z[zi].h.map(h=>`<div class="dot" style="left:${h[0]}%;top:${h[1]}%"><em>${h[2]}</em></div>`).join('');$('#zb').textContent=Z[zi].c;$('#zs').textContent=Z[zi].d}
 $$('#zt button').forEach((b,i)=>b.onclick=()=>{zi=i;drawZ()});drawZ();
 /* materials */
 const MT=[['Тик','01','Массив с природными маслами. Устойчив к влаге, со временем приобретает серебристую патину.','f15'],['Алюминий','02','Лёгкий каркас с порошковым покрытием. Не ржавеет и спокойно переносит жару и мороз.','f12'],['Плетение','03','Технологичное волокно с мягкой фактурой. Не выцветает и держит форму.','f07'],['Ткани','04','Уличные ткани, которые быстро сохнут, не выгорают на солнце и приятны на ощупь.','f19']];
 let mi=0;
 $('#ml').innerHTML=MT.map((m,i)=>`<li class="${i?'':'on'}"><div class="t"><h3>${m[0]}</h3><small>${m[1]}</small></div><p>${m[2]}</p></li>`).join('');
-$('#mp').innerHTML=MT.map((m,i)=>`<img src="img/${m[3]}.jpg" class="${i?'':'on'}" style="object-position:${i===0?'68% 50%':i===2?'36% 50%':'50% 55%'}" alt="">`).join('');
+$('#mp').innerHTML=MT.map((m,i)=>`<img src="${m[3]}.jpg" class="${i?'':'on'}" style="object-position:${i===0?'68% 50%':i===2?'36% 50%':'50% 55%'}" alt="">`).join('');
 $$('#ml li').forEach((li,i)=>li.onmouseenter=li.onclick=()=>{$$('#ml li').forEach((x,j)=>x.classList.toggle('on',j===i));$$('#mp img').forEach((x,j)=>x.classList.toggle('on',j===i))});
 /* projects */
 const PJ=[['f21','Ресторан на террасе'],['f22','Ужин при свете фонарей'],['f25','Веранда виллы'],['f23','Отельный двор'],['f01','У бассейна'],['f03','Терраса с видом на море']];
-$('#prj').innerHTML=PJ.map(p=>`<div class="pj"><img src="img/${p[0]}_m.jpg" alt="" loading="lazy"><span>${p[1]}</span></div>`).join('');
+$('#prj').innerHTML=PJ.map(p=>`<div class="pj"><img src="${p[0]}_m.jpg" alt="" loading="lazy"><span>${p[1]}</span></div>`).join('');
 $('#pl').onclick=()=>$('#prj').scrollBy({left:-720,behavior:'smooth'});$('#pr').onclick=()=>$('#prj').scrollBy({left:720,behavior:'smooth'});
 /* visit */
 const DN=['вс','пн','вт','ср','чт','пт','сб'];let d='',t='';
@@ -356,7 +356,7 @@ function up(){$('#sel').textContent=d&&t?`Выбрано: ${d}, ${t}`:'';$('#bgo
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Каталог — azur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@500;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lead.css">
+<link rel="stylesheet" href="lead.css">
 <style>
 :root{--bg:#F4F2EE;--ink:#0d0d0d;--mut:#a39f97;--card:#E6E3DD;--pad:28px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -265,8 +265,8 @@ footer .big-wm{font-family:Unbounded,sans-serif;font-weight:800;font-size:27vw;l
 <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="name"><input name="phone"><input name="contact"><input name="type"><input name="topic"><input name="product"><input name="source"><input name="page"><input name="comment"><input name="interest"><input name="object"><input name="size"><input name="visit"><input name="bot-field">
 </form>
-<script src="assets/data.js"></script>
-<script src="assets/lead.js"></script>
+<script src="data.js"></script>
+<script src="lead.js"></script>
 <script>
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -278,7 +278,7 @@ function setQ(o){const u=new URL(location.href);Object.entries(o).forEach(([k,v]
 function plural(n){return n+' '+(n%10===1&&n%100!==11?'модель':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?'модели':'моделей')}
 
 const WP=['f05','f15','f12','f10'];let wi=0;
-$('#wph').innerHTML=WP.map((k,i)=>`<img src="img/${k}.jpg" style="opacity:${i?0:1}" alt="">`).join('');
+$('#wph').innerHTML=WP.map((k,i)=>`<img src="${k}.jpg" style="opacity:${i?0:1}" alt="">`).join('');
 setInterval(()=>{wi=(wi+1)%WP.length;$$('#wph img').forEach((m,i)=>m.style.opacity=i===wi?1:0)},2600);
 let cat=Q.get('cat')||'',mood=Q.get('c')||'',mat=Q.get('mat')||'';
 function draw(){
@@ -294,7 +294,7 @@ function draw(){
   const L=filterProducts(cat,mood,mat);
   document.title=(AZ.cat(cat)?AZ.cat(cat).n+' · ':'Каталог · ')+'azur';
   $('#cnt').textContent=plural(L.length);
-  $('#grid').innerHTML=L.map(p=>{const m=AZ.mood(p.m);return `<a class="gt" href="${AZ.link.product(p.id)}" style="--c:${m.c}"><img src="img/${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="dt"><i></i>${m.n}</span><div class="tg"><div class="cap"><b>${p.n}</b><span>${p.v}</span></div><button class="ql" data-lead="product" data-product="${p.id}" data-source="catalog-card">Получить расчёт</button></div></a>`}).join('');
+  $('#grid').innerHTML=L.map(p=>{const m=AZ.mood(p.m);return `<a class="gt" href="${AZ.link.product(p.id)}" style="--c:${m.c}"><img src="${p.i}.jpg" style="object-position:${p.pos}" alt="${p.n}" loading="lazy"><span class="dt"><i></i>${m.n}</span><div class="tg"><div class="cap"><b>${p.n}</b><span>${p.v}</span></div><button class="ql" data-lead="product" data-product="${p.id}" data-source="catalog-card">Получить расчёт</button></div></a>`}).join('');
   $('#empty').style.display=L.length?'none':'block';
   $$('#grid .ql').forEach(b=>b.addEventListener('click',e=>e.stopPropagation()));
 }
